@@ -4,9 +4,21 @@ option go_package = "github.com/decibelcooper/proio/go-proio/model/mc";
 option java_package = "proio.model";
 option java_outer_classname = "Mc";
 
+
+// this message is for general Monte Carlo generators
 message MCParameters {
     optional uint64 number = 1;
     optional int32 processid = 2;
+    optional double weight = 3;
+    repeated int32  iarray = 4;
+    repeated double darray = 5;
+}
+
+
+// this block is only for Pythia8
+message Pythia8Parameters {
+    optional double weight_sum = 1;
+    optional double merging_weight = 2;
     optional double pt_hat = 3;
     optional double alpha_em = 4;
     optional double alpha_s = 5;
@@ -16,9 +28,5 @@ message MCParameters {
     optional double x2 = 9;
     optional uint64 id1 = 10;
     optional uint64 id2 = 11;
-}
 
-message PythiaParameters {
-    optional double weight_sum = 1;
-    optional double merging_weight = 2;
 }
