@@ -14,23 +14,15 @@ public final class Mc {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface PythiaParametersOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:proio.model.mc.PythiaParameters)
+  public interface MCParametersOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proio.model.mc.MCParameters)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     * should be 15 or less
-     * </pre>
-     *
      * <code>optional uint64 number = 1;</code>
      */
     boolean hasNumber();
     /**
-     * <pre>
-     * should be 15 or less
-     * </pre>
-     *
      * <code>optional uint64 number = 1;</code>
      */
     long getNumber();
@@ -43,6 +35,1016 @@ public final class Mc {
      * <code>optional int32 processid = 2;</code>
      */
     int getProcessid();
+
+    /**
+     * <code>optional double weight = 3;</code>
+     */
+    boolean hasWeight();
+    /**
+     * <code>optional double weight = 3;</code>
+     */
+    double getWeight();
+
+    /**
+     * <code>repeated int32 iarray = 4;</code>
+     */
+    java.util.List<java.lang.Integer> getIarrayList();
+    /**
+     * <code>repeated int32 iarray = 4;</code>
+     */
+    int getIarrayCount();
+    /**
+     * <code>repeated int32 iarray = 4;</code>
+     */
+    int getIarray(int index);
+
+    /**
+     * <code>repeated double darray = 5;</code>
+     */
+    java.util.List<java.lang.Double> getDarrayList();
+    /**
+     * <code>repeated double darray = 5;</code>
+     */
+    int getDarrayCount();
+    /**
+     * <code>repeated double darray = 5;</code>
+     */
+    double getDarray(int index);
+  }
+  /**
+   * <pre>
+   * this message is for general Monte Carlo generators
+   * </pre>
+   *
+   * Protobuf type {@code proio.model.mc.MCParameters}
+   */
+  public  static final class MCParameters extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proio.model.mc.MCParameters)
+      MCParametersOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MCParameters.newBuilder() to construct.
+    private MCParameters(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MCParameters() {
+      number_ = 0L;
+      processid_ = 0;
+      weight_ = 0D;
+      iarray_ = java.util.Collections.emptyList();
+      darray_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MCParameters(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              number_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              processid_ = input.readInt32();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              weight_ = input.readDouble();
+              break;
+            }
+            case 32: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                iarray_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              iarray_.add(input.readInt32());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
+                iarray_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                iarray_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 41: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                darray_ = new java.util.ArrayList<java.lang.Double>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              darray_.add(input.readDouble());
+              break;
+            }
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
+                darray_ = new java.util.ArrayList<java.lang.Double>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                darray_.add(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          iarray_ = java.util.Collections.unmodifiableList(iarray_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          darray_ = java.util.Collections.unmodifiableList(darray_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proio.model.Mc.internal_static_proio_model_mc_MCParameters_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proio.model.Mc.internal_static_proio_model_mc_MCParameters_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proio.model.Mc.MCParameters.class, proio.model.Mc.MCParameters.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NUMBER_FIELD_NUMBER = 1;
+    private long number_;
+    /**
+     * <code>optional uint64 number = 1;</code>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional uint64 number = 1;</code>
+     */
+    public long getNumber() {
+      return number_;
+    }
+
+    public static final int PROCESSID_FIELD_NUMBER = 2;
+    private int processid_;
+    /**
+     * <code>optional int32 processid = 2;</code>
+     */
+    public boolean hasProcessid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 processid = 2;</code>
+     */
+    public int getProcessid() {
+      return processid_;
+    }
+
+    public static final int WEIGHT_FIELD_NUMBER = 3;
+    private double weight_;
+    /**
+     * <code>optional double weight = 3;</code>
+     */
+    public boolean hasWeight() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional double weight = 3;</code>
+     */
+    public double getWeight() {
+      return weight_;
+    }
+
+    public static final int IARRAY_FIELD_NUMBER = 4;
+    private java.util.List<java.lang.Integer> iarray_;
+    /**
+     * <code>repeated int32 iarray = 4;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getIarrayList() {
+      return iarray_;
+    }
+    /**
+     * <code>repeated int32 iarray = 4;</code>
+     */
+    public int getIarrayCount() {
+      return iarray_.size();
+    }
+    /**
+     * <code>repeated int32 iarray = 4;</code>
+     */
+    public int getIarray(int index) {
+      return iarray_.get(index);
+    }
+
+    public static final int DARRAY_FIELD_NUMBER = 5;
+    private java.util.List<java.lang.Double> darray_;
+    /**
+     * <code>repeated double darray = 5;</code>
+     */
+    public java.util.List<java.lang.Double>
+        getDarrayList() {
+      return darray_;
+    }
+    /**
+     * <code>repeated double darray = 5;</code>
+     */
+    public int getDarrayCount() {
+      return darray_.size();
+    }
+    /**
+     * <code>repeated double darray = 5;</code>
+     */
+    public double getDarray(int index) {
+      return darray_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, number_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, processid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeDouble(3, weight_);
+      }
+      for (int i = 0; i < iarray_.size(); i++) {
+        output.writeInt32(4, iarray_.get(i));
+      }
+      for (int i = 0; i < darray_.size(); i++) {
+        output.writeDouble(5, darray_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, number_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, processid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, weight_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < iarray_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(iarray_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getIarrayList().size();
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getDarrayList().size();
+        size += dataSize;
+        size += 1 * getDarrayList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proio.model.Mc.MCParameters)) {
+        return super.equals(obj);
+      }
+      proio.model.Mc.MCParameters other = (proio.model.Mc.MCParameters) obj;
+
+      boolean result = true;
+      result = result && (hasNumber() == other.hasNumber());
+      if (hasNumber()) {
+        result = result && (getNumber()
+            == other.getNumber());
+      }
+      result = result && (hasProcessid() == other.hasProcessid());
+      if (hasProcessid()) {
+        result = result && (getProcessid()
+            == other.getProcessid());
+      }
+      result = result && (hasWeight() == other.hasWeight());
+      if (hasWeight()) {
+        result = result && (
+            java.lang.Double.doubleToLongBits(getWeight())
+            == java.lang.Double.doubleToLongBits(
+                other.getWeight()));
+      }
+      result = result && getIarrayList()
+          .equals(other.getIarrayList());
+      result = result && getDarrayList()
+          .equals(other.getDarrayList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNumber()) {
+        hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getNumber());
+      }
+      if (hasProcessid()) {
+        hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
+        hash = (53 * hash) + getProcessid();
+      }
+      if (hasWeight()) {
+        hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getWeight()));
+      }
+      if (getIarrayCount() > 0) {
+        hash = (37 * hash) + IARRAY_FIELD_NUMBER;
+        hash = (53 * hash) + getIarrayList().hashCode();
+      }
+      if (getDarrayCount() > 0) {
+        hash = (37 * hash) + DARRAY_FIELD_NUMBER;
+        hash = (53 * hash) + getDarrayList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proio.model.Mc.MCParameters parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proio.model.Mc.MCParameters parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MCParameters parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MCParameters parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proio.model.Mc.MCParameters prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * this message is for general Monte Carlo generators
+     * </pre>
+     *
+     * Protobuf type {@code proio.model.mc.MCParameters}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proio.model.mc.MCParameters)
+        proio.model.Mc.MCParametersOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proio.model.Mc.internal_static_proio_model_mc_MCParameters_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proio.model.Mc.internal_static_proio_model_mc_MCParameters_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proio.model.Mc.MCParameters.class, proio.model.Mc.MCParameters.Builder.class);
+      }
+
+      // Construct using proio.model.Mc.MCParameters.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        number_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        processid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        weight_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        iarray_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        darray_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proio.model.Mc.internal_static_proio_model_mc_MCParameters_descriptor;
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MCParameters getDefaultInstanceForType() {
+        return proio.model.Mc.MCParameters.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MCParameters build() {
+        proio.model.Mc.MCParameters result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MCParameters buildPartial() {
+        proio.model.Mc.MCParameters result = new proio.model.Mc.MCParameters(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.number_ = number_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.processid_ = processid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.weight_ = weight_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          iarray_ = java.util.Collections.unmodifiableList(iarray_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.iarray_ = iarray_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          darray_ = java.util.Collections.unmodifiableList(darray_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.darray_ = darray_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proio.model.Mc.MCParameters) {
+          return mergeFrom((proio.model.Mc.MCParameters)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proio.model.Mc.MCParameters other) {
+        if (other == proio.model.Mc.MCParameters.getDefaultInstance()) return this;
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
+        }
+        if (other.hasProcessid()) {
+          setProcessid(other.getProcessid());
+        }
+        if (other.hasWeight()) {
+          setWeight(other.getWeight());
+        }
+        if (!other.iarray_.isEmpty()) {
+          if (iarray_.isEmpty()) {
+            iarray_ = other.iarray_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureIarrayIsMutable();
+            iarray_.addAll(other.iarray_);
+          }
+          onChanged();
+        }
+        if (!other.darray_.isEmpty()) {
+          if (darray_.isEmpty()) {
+            darray_ = other.darray_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureDarrayIsMutable();
+            darray_.addAll(other.darray_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proio.model.Mc.MCParameters parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proio.model.Mc.MCParameters) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long number_ ;
+      /**
+       * <code>optional uint64 number = 1;</code>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional uint64 number = 1;</code>
+       */
+      public long getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional uint64 number = 1;</code>
+       */
+      public Builder setNumber(long value) {
+        bitField0_ |= 0x00000001;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 number = 1;</code>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        number_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int processid_ ;
+      /**
+       * <code>optional int32 processid = 2;</code>
+       */
+      public boolean hasProcessid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 processid = 2;</code>
+       */
+      public int getProcessid() {
+        return processid_;
+      }
+      /**
+       * <code>optional int32 processid = 2;</code>
+       */
+      public Builder setProcessid(int value) {
+        bitField0_ |= 0x00000002;
+        processid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 processid = 2;</code>
+       */
+      public Builder clearProcessid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        processid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double weight_ ;
+      /**
+       * <code>optional double weight = 3;</code>
+       */
+      public boolean hasWeight() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional double weight = 3;</code>
+       */
+      public double getWeight() {
+        return weight_;
+      }
+      /**
+       * <code>optional double weight = 3;</code>
+       */
+      public Builder setWeight(double value) {
+        bitField0_ |= 0x00000004;
+        weight_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double weight = 3;</code>
+       */
+      public Builder clearWeight() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        weight_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> iarray_ = java.util.Collections.emptyList();
+      private void ensureIarrayIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          iarray_ = new java.util.ArrayList<java.lang.Integer>(iarray_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getIarrayList() {
+        return java.util.Collections.unmodifiableList(iarray_);
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public int getIarrayCount() {
+        return iarray_.size();
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public int getIarray(int index) {
+        return iarray_.get(index);
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public Builder setIarray(
+          int index, int value) {
+        ensureIarrayIsMutable();
+        iarray_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public Builder addIarray(int value) {
+        ensureIarrayIsMutable();
+        iarray_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public Builder addAllIarray(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureIarrayIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, iarray_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 iarray = 4;</code>
+       */
+      public Builder clearIarray() {
+        iarray_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Double> darray_ = java.util.Collections.emptyList();
+      private void ensureDarrayIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          darray_ = new java.util.ArrayList<java.lang.Double>(darray_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public java.util.List<java.lang.Double>
+          getDarrayList() {
+        return java.util.Collections.unmodifiableList(darray_);
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public int getDarrayCount() {
+        return darray_.size();
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public double getDarray(int index) {
+        return darray_.get(index);
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public Builder setDarray(
+          int index, double value) {
+        ensureDarrayIsMutable();
+        darray_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public Builder addDarray(double value) {
+        ensureDarrayIsMutable();
+        darray_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public Builder addAllDarray(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureDarrayIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, darray_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double darray = 5;</code>
+       */
+      public Builder clearDarray() {
+        darray_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proio.model.mc.MCParameters)
+    }
+
+    // @@protoc_insertion_point(class_scope:proio.model.mc.MCParameters)
+    private static final proio.model.Mc.MCParameters DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proio.model.Mc.MCParameters();
+    }
+
+    public static proio.model.Mc.MCParameters getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MCParameters>
+        PARSER = new com.google.protobuf.AbstractParser<MCParameters>() {
+      @java.lang.Override
+      public MCParameters parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MCParameters(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MCParameters> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MCParameters> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proio.model.Mc.MCParameters getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface Pythia8ParametersOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proio.model.mc.Pythia8Parameters)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional double weight_sum = 1;</code>
+     */
+    boolean hasWeightSum();
+    /**
+     * <code>optional double weight_sum = 1;</code>
+     */
+    double getWeightSum();
+
+    /**
+     * <code>optional double merging_weight = 2;</code>
+     */
+    boolean hasMergingWeight();
+    /**
+     * <code>optional double merging_weight = 2;</code>
+     */
+    double getMergingWeight();
 
     /**
      * <code>optional double pt_hat = 3;</code>
@@ -90,81 +1092,65 @@ public final class Mc {
     double getWeight();
 
     /**
-     * <code>optional double weight_sum = 8;</code>
-     */
-    boolean hasWeightSum();
-    /**
-     * <code>optional double weight_sum = 8;</code>
-     */
-    double getWeightSum();
-
-    /**
-     * <code>optional double merging_weight = 9;</code>
-     */
-    boolean hasMergingWeight();
-    /**
-     * <code>optional double merging_weight = 9;</code>
-     */
-    double getMergingWeight();
-
-    /**
-     * <code>optional double x1 = 10;</code>
+     * <code>optional double x1 = 8;</code>
      */
     boolean hasX1();
     /**
-     * <code>optional double x1 = 10;</code>
+     * <code>optional double x1 = 8;</code>
      */
     double getX1();
 
     /**
-     * <code>optional double x2 = 11;</code>
+     * <code>optional double x2 = 9;</code>
      */
     boolean hasX2();
     /**
-     * <code>optional double x2 = 11;</code>
+     * <code>optional double x2 = 9;</code>
      */
     double getX2();
 
     /**
-     * <code>optional uint64 id1 = 12;</code>
+     * <code>optional uint64 id1 = 10;</code>
      */
     boolean hasId1();
     /**
-     * <code>optional uint64 id1 = 12;</code>
+     * <code>optional uint64 id1 = 10;</code>
      */
     long getId1();
 
     /**
-     * <code>optional uint64 id2 = 13;</code>
+     * <code>optional uint64 id2 = 11;</code>
      */
     boolean hasId2();
     /**
-     * <code>optional uint64 id2 = 13;</code>
+     * <code>optional uint64 id2 = 11;</code>
      */
     long getId2();
   }
   /**
-   * Protobuf type {@code proio.model.mc.PythiaParameters}
+   * <pre>
+   * this block is only for Pythia8
+   * </pre>
+   *
+   * Protobuf type {@code proio.model.mc.Pythia8Parameters}
    */
-  public  static final class PythiaParameters extends
+  public  static final class Pythia8Parameters extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:proio.model.mc.PythiaParameters)
-      PythiaParametersOrBuilder {
+      // @@protoc_insertion_point(message_implements:proio.model.mc.Pythia8Parameters)
+      Pythia8ParametersOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PythiaParameters.newBuilder() to construct.
-    private PythiaParameters(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Pythia8Parameters.newBuilder() to construct.
+    private Pythia8Parameters(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PythiaParameters() {
-      number_ = 0L;
-      processid_ = 0;
+    private Pythia8Parameters() {
+      weightSum_ = 0D;
+      mergingWeight_ = 0D;
       ptHat_ = 0D;
       alphaEm_ = 0D;
       alphaS_ = 0D;
       scaleQFac_ = 0D;
       weight_ = 0D;
-      weightSum_ = 0D;
-      mergingWeight_ = 0D;
       x1_ = 0D;
       x2_ = 0D;
       id1_ = 0L;
@@ -176,7 +1162,7 @@ public final class Mc {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PythiaParameters(
+    private Pythia8Parameters(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -195,14 +1181,14 @@ public final class Mc {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 9: {
               bitField0_ |= 0x00000001;
-              number_ = input.readUInt64();
+              weightSum_ = input.readDouble();
               break;
             }
-            case 16: {
+            case 17: {
               bitField0_ |= 0x00000002;
-              processid_ = input.readInt32();
+              mergingWeight_ = input.readDouble();
               break;
             }
             case 25: {
@@ -232,31 +1218,21 @@ public final class Mc {
             }
             case 65: {
               bitField0_ |= 0x00000080;
-              weightSum_ = input.readDouble();
+              x1_ = input.readDouble();
               break;
             }
             case 73: {
               bitField0_ |= 0x00000100;
-              mergingWeight_ = input.readDouble();
-              break;
-            }
-            case 81: {
-              bitField0_ |= 0x00000200;
-              x1_ = input.readDouble();
-              break;
-            }
-            case 89: {
-              bitField0_ |= 0x00000400;
               x2_ = input.readDouble();
               break;
             }
-            case 96: {
-              bitField0_ |= 0x00000800;
+            case 80: {
+              bitField0_ |= 0x00000200;
               id1_ = input.readUInt64();
               break;
             }
-            case 104: {
-              bitField0_ |= 0x00001000;
+            case 88: {
+              bitField0_ |= 0x00000400;
               id2_ = input.readUInt64();
               break;
             }
@@ -281,54 +1257,46 @@ public final class Mc {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return proio.model.Mc.internal_static_proio_model_mc_PythiaParameters_descriptor;
+      return proio.model.Mc.internal_static_proio_model_mc_Pythia8Parameters_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return proio.model.Mc.internal_static_proio_model_mc_PythiaParameters_fieldAccessorTable
+      return proio.model.Mc.internal_static_proio_model_mc_Pythia8Parameters_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              proio.model.Mc.PythiaParameters.class, proio.model.Mc.PythiaParameters.Builder.class);
+              proio.model.Mc.Pythia8Parameters.class, proio.model.Mc.Pythia8Parameters.Builder.class);
     }
 
     private int bitField0_;
-    public static final int NUMBER_FIELD_NUMBER = 1;
-    private long number_;
+    public static final int WEIGHT_SUM_FIELD_NUMBER = 1;
+    private double weightSum_;
     /**
-     * <pre>
-     * should be 15 or less
-     * </pre>
-     *
-     * <code>optional uint64 number = 1;</code>
+     * <code>optional double weight_sum = 1;</code>
      */
-    public boolean hasNumber() {
+    public boolean hasWeightSum() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <pre>
-     * should be 15 or less
-     * </pre>
-     *
-     * <code>optional uint64 number = 1;</code>
+     * <code>optional double weight_sum = 1;</code>
      */
-    public long getNumber() {
-      return number_;
+    public double getWeightSum() {
+      return weightSum_;
     }
 
-    public static final int PROCESSID_FIELD_NUMBER = 2;
-    private int processid_;
+    public static final int MERGING_WEIGHT_FIELD_NUMBER = 2;
+    private double mergingWeight_;
     /**
-     * <code>optional int32 processid = 2;</code>
+     * <code>optional double merging_weight = 2;</code>
      */
-    public boolean hasProcessid() {
+    public boolean hasMergingWeight() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 processid = 2;</code>
+     * <code>optional double merging_weight = 2;</code>
      */
-    public int getProcessid() {
-      return processid_;
+    public double getMergingWeight() {
+      return mergingWeight_;
     }
 
     public static final int PT_HAT_FIELD_NUMBER = 3;
@@ -406,91 +1374,61 @@ public final class Mc {
       return weight_;
     }
 
-    public static final int WEIGHT_SUM_FIELD_NUMBER = 8;
-    private double weightSum_;
+    public static final int X1_FIELD_NUMBER = 8;
+    private double x1_;
     /**
-     * <code>optional double weight_sum = 8;</code>
+     * <code>optional double x1 = 8;</code>
      */
-    public boolean hasWeightSum() {
+    public boolean hasX1() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional double weight_sum = 8;</code>
-     */
-    public double getWeightSum() {
-      return weightSum_;
-    }
-
-    public static final int MERGING_WEIGHT_FIELD_NUMBER = 9;
-    private double mergingWeight_;
-    /**
-     * <code>optional double merging_weight = 9;</code>
-     */
-    public boolean hasMergingWeight() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    /**
-     * <code>optional double merging_weight = 9;</code>
-     */
-    public double getMergingWeight() {
-      return mergingWeight_;
-    }
-
-    public static final int X1_FIELD_NUMBER = 10;
-    private double x1_;
-    /**
-     * <code>optional double x1 = 10;</code>
-     */
-    public boolean hasX1() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
-    }
-    /**
-     * <code>optional double x1 = 10;</code>
+     * <code>optional double x1 = 8;</code>
      */
     public double getX1() {
       return x1_;
     }
 
-    public static final int X2_FIELD_NUMBER = 11;
+    public static final int X2_FIELD_NUMBER = 9;
     private double x2_;
     /**
-     * <code>optional double x2 = 11;</code>
+     * <code>optional double x2 = 9;</code>
      */
     public boolean hasX2() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional double x2 = 11;</code>
+     * <code>optional double x2 = 9;</code>
      */
     public double getX2() {
       return x2_;
     }
 
-    public static final int ID1_FIELD_NUMBER = 12;
+    public static final int ID1_FIELD_NUMBER = 10;
     private long id1_;
     /**
-     * <code>optional uint64 id1 = 12;</code>
+     * <code>optional uint64 id1 = 10;</code>
      */
     public boolean hasId1() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional uint64 id1 = 12;</code>
+     * <code>optional uint64 id1 = 10;</code>
      */
     public long getId1() {
       return id1_;
     }
 
-    public static final int ID2_FIELD_NUMBER = 13;
+    public static final int ID2_FIELD_NUMBER = 11;
     private long id2_;
     /**
-     * <code>optional uint64 id2 = 13;</code>
+     * <code>optional uint64 id2 = 11;</code>
      */
     public boolean hasId2() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional uint64 id2 = 13;</code>
+     * <code>optional uint64 id2 = 11;</code>
      */
     public long getId2() {
       return id2_;
@@ -511,10 +1449,10 @@ public final class Mc {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeUInt64(1, number_);
+        output.writeDouble(1, weightSum_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, processid_);
+        output.writeDouble(2, mergingWeight_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeDouble(3, ptHat_);
@@ -532,22 +1470,16 @@ public final class Mc {
         output.writeDouble(7, weight_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeDouble(8, weightSum_);
+        output.writeDouble(8, x1_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeDouble(9, mergingWeight_);
+        output.writeDouble(9, x2_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeDouble(10, x1_);
+        output.writeUInt64(10, id1_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeDouble(11, x2_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeUInt64(12, id1_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeUInt64(13, id2_);
+        output.writeUInt64(11, id2_);
       }
       unknownFields.writeTo(output);
     }
@@ -560,11 +1492,11 @@ public final class Mc {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, number_);
+          .computeDoubleSize(1, weightSum_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, processid_);
+          .computeDoubleSize(2, mergingWeight_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -588,27 +1520,19 @@ public final class Mc {
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(8, weightSum_);
+          .computeDoubleSize(8, x1_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(9, mergingWeight_);
+          .computeDoubleSize(9, x2_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(10, x1_);
+          .computeUInt64Size(10, id1_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(11, x2_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(12, id1_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(13, id2_);
+          .computeUInt64Size(11, id2_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -620,21 +1544,25 @@ public final class Mc {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof proio.model.Mc.PythiaParameters)) {
+      if (!(obj instanceof proio.model.Mc.Pythia8Parameters)) {
         return super.equals(obj);
       }
-      proio.model.Mc.PythiaParameters other = (proio.model.Mc.PythiaParameters) obj;
+      proio.model.Mc.Pythia8Parameters other = (proio.model.Mc.Pythia8Parameters) obj;
 
       boolean result = true;
-      result = result && (hasNumber() == other.hasNumber());
-      if (hasNumber()) {
-        result = result && (getNumber()
-            == other.getNumber());
+      result = result && (hasWeightSum() == other.hasWeightSum());
+      if (hasWeightSum()) {
+        result = result && (
+            java.lang.Double.doubleToLongBits(getWeightSum())
+            == java.lang.Double.doubleToLongBits(
+                other.getWeightSum()));
       }
-      result = result && (hasProcessid() == other.hasProcessid());
-      if (hasProcessid()) {
-        result = result && (getProcessid()
-            == other.getProcessid());
+      result = result && (hasMergingWeight() == other.hasMergingWeight());
+      if (hasMergingWeight()) {
+        result = result && (
+            java.lang.Double.doubleToLongBits(getMergingWeight())
+            == java.lang.Double.doubleToLongBits(
+                other.getMergingWeight()));
       }
       result = result && (hasPtHat() == other.hasPtHat());
       if (hasPtHat()) {
@@ -671,20 +1599,6 @@ public final class Mc {
             == java.lang.Double.doubleToLongBits(
                 other.getWeight()));
       }
-      result = result && (hasWeightSum() == other.hasWeightSum());
-      if (hasWeightSum()) {
-        result = result && (
-            java.lang.Double.doubleToLongBits(getWeightSum())
-            == java.lang.Double.doubleToLongBits(
-                other.getWeightSum()));
-      }
-      result = result && (hasMergingWeight() == other.hasMergingWeight());
-      if (hasMergingWeight()) {
-        result = result && (
-            java.lang.Double.doubleToLongBits(getMergingWeight())
-            == java.lang.Double.doubleToLongBits(
-                other.getMergingWeight()));
-      }
       result = result && (hasX1() == other.hasX1());
       if (hasX1()) {
         result = result && (
@@ -720,14 +1634,15 @@ public final class Mc {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasNumber()) {
-        hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+      if (hasWeightSum()) {
+        hash = (37 * hash) + WEIGHT_SUM_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getNumber());
+            java.lang.Double.doubleToLongBits(getWeightSum()));
       }
-      if (hasProcessid()) {
-        hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
-        hash = (53 * hash) + getProcessid();
+      if (hasMergingWeight()) {
+        hash = (37 * hash) + MERGING_WEIGHT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getMergingWeight()));
       }
       if (hasPtHat()) {
         hash = (37 * hash) + PT_HAT_FIELD_NUMBER;
@@ -754,16 +1669,6 @@ public final class Mc {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getWeight()));
       }
-      if (hasWeightSum()) {
-        hash = (37 * hash) + WEIGHT_SUM_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getWeightSum()));
-      }
-      if (hasMergingWeight()) {
-        hash = (37 * hash) + MERGING_WEIGHT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getMergingWeight()));
-      }
       if (hasX1()) {
         hash = (37 * hash) + X1_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -789,69 +1694,69 @@ public final class Mc {
       return hash;
     }
 
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(byte[] data)
+    public static proio.model.Mc.Pythia8Parameters parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(java.io.InputStream input)
+    public static proio.model.Mc.Pythia8Parameters parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static proio.model.Mc.PythiaParameters parseDelimitedFrom(java.io.InputStream input)
+    public static proio.model.Mc.Pythia8Parameters parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static proio.model.Mc.PythiaParameters parseDelimitedFrom(
+    public static proio.model.Mc.Pythia8Parameters parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static proio.model.Mc.PythiaParameters parseFrom(
+    public static proio.model.Mc.Pythia8Parameters parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -864,7 +1769,7 @@ public final class Mc {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(proio.model.Mc.PythiaParameters prototype) {
+    public static Builder newBuilder(proio.model.Mc.Pythia8Parameters prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -880,26 +1785,30 @@ public final class Mc {
       return builder;
     }
     /**
-     * Protobuf type {@code proio.model.mc.PythiaParameters}
+     * <pre>
+     * this block is only for Pythia8
+     * </pre>
+     *
+     * Protobuf type {@code proio.model.mc.Pythia8Parameters}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:proio.model.mc.PythiaParameters)
-        proio.model.Mc.PythiaParametersOrBuilder {
+        // @@protoc_insertion_point(builder_implements:proio.model.mc.Pythia8Parameters)
+        proio.model.Mc.Pythia8ParametersOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return proio.model.Mc.internal_static_proio_model_mc_PythiaParameters_descriptor;
+        return proio.model.Mc.internal_static_proio_model_mc_Pythia8Parameters_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return proio.model.Mc.internal_static_proio_model_mc_PythiaParameters_fieldAccessorTable
+        return proio.model.Mc.internal_static_proio_model_mc_Pythia8Parameters_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                proio.model.Mc.PythiaParameters.class, proio.model.Mc.PythiaParameters.Builder.class);
+                proio.model.Mc.Pythia8Parameters.class, proio.model.Mc.Pythia8Parameters.Builder.class);
       }
 
-      // Construct using proio.model.Mc.PythiaParameters.newBuilder()
+      // Construct using proio.model.Mc.Pythia8Parameters.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -917,9 +1826,9 @@ public final class Mc {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        number_ = 0L;
+        weightSum_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000001);
-        processid_ = 0;
+        mergingWeight_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000002);
         ptHat_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -931,35 +1840,31 @@ public final class Mc {
         bitField0_ = (bitField0_ & ~0x00000020);
         weight_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000040);
-        weightSum_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        mergingWeight_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000100);
         x1_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000080);
         x2_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000100);
         id1_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000200);
         id2_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return proio.model.Mc.internal_static_proio_model_mc_PythiaParameters_descriptor;
+        return proio.model.Mc.internal_static_proio_model_mc_Pythia8Parameters_descriptor;
       }
 
       @java.lang.Override
-      public proio.model.Mc.PythiaParameters getDefaultInstanceForType() {
-        return proio.model.Mc.PythiaParameters.getDefaultInstance();
+      public proio.model.Mc.Pythia8Parameters getDefaultInstanceForType() {
+        return proio.model.Mc.Pythia8Parameters.getDefaultInstance();
       }
 
       @java.lang.Override
-      public proio.model.Mc.PythiaParameters build() {
-        proio.model.Mc.PythiaParameters result = buildPartial();
+      public proio.model.Mc.Pythia8Parameters build() {
+        proio.model.Mc.Pythia8Parameters result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -967,18 +1872,18 @@ public final class Mc {
       }
 
       @java.lang.Override
-      public proio.model.Mc.PythiaParameters buildPartial() {
-        proio.model.Mc.PythiaParameters result = new proio.model.Mc.PythiaParameters(this);
+      public proio.model.Mc.Pythia8Parameters buildPartial() {
+        proio.model.Mc.Pythia8Parameters result = new proio.model.Mc.Pythia8Parameters(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.number_ = number_;
+        result.weightSum_ = weightSum_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.processid_ = processid_;
+        result.mergingWeight_ = mergingWeight_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -1002,25 +1907,17 @@ public final class Mc {
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.weightSum_ = weightSum_;
+        result.x1_ = x1_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.mergingWeight_ = mergingWeight_;
+        result.x2_ = x2_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.x1_ = x1_;
+        result.id1_ = id1_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
-        }
-        result.x2_ = x2_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.id1_ = id1_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-          to_bitField0_ |= 0x00001000;
         }
         result.id2_ = id2_;
         result.bitField0_ = to_bitField0_;
@@ -1062,21 +1959,21 @@ public final class Mc {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof proio.model.Mc.PythiaParameters) {
-          return mergeFrom((proio.model.Mc.PythiaParameters)other);
+        if (other instanceof proio.model.Mc.Pythia8Parameters) {
+          return mergeFrom((proio.model.Mc.Pythia8Parameters)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(proio.model.Mc.PythiaParameters other) {
-        if (other == proio.model.Mc.PythiaParameters.getDefaultInstance()) return this;
-        if (other.hasNumber()) {
-          setNumber(other.getNumber());
+      public Builder mergeFrom(proio.model.Mc.Pythia8Parameters other) {
+        if (other == proio.model.Mc.Pythia8Parameters.getDefaultInstance()) return this;
+        if (other.hasWeightSum()) {
+          setWeightSum(other.getWeightSum());
         }
-        if (other.hasProcessid()) {
-          setProcessid(other.getProcessid());
+        if (other.hasMergingWeight()) {
+          setMergingWeight(other.getMergingWeight());
         }
         if (other.hasPtHat()) {
           setPtHat(other.getPtHat());
@@ -1092,12 +1989,6 @@ public final class Mc {
         }
         if (other.hasWeight()) {
           setWeight(other.getWeight());
-        }
-        if (other.hasWeightSum()) {
-          setWeightSum(other.getWeightSum());
-        }
-        if (other.hasMergingWeight()) {
-          setMergingWeight(other.getMergingWeight());
         }
         if (other.hasX1()) {
           setX1(other.getX1());
@@ -1126,11 +2017,11 @@ public final class Mc {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        proio.model.Mc.PythiaParameters parsedMessage = null;
+        proio.model.Mc.Pythia8Parameters parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (proio.model.Mc.PythiaParameters) e.getUnfinishedMessage();
+          parsedMessage = (proio.model.Mc.Pythia8Parameters) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1141,82 +2032,66 @@ public final class Mc {
       }
       private int bitField0_;
 
-      private long number_ ;
+      private double weightSum_ ;
       /**
-       * <pre>
-       * should be 15 or less
-       * </pre>
-       *
-       * <code>optional uint64 number = 1;</code>
+       * <code>optional double weight_sum = 1;</code>
        */
-      public boolean hasNumber() {
+      public boolean hasWeightSum() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <pre>
-       * should be 15 or less
-       * </pre>
-       *
-       * <code>optional uint64 number = 1;</code>
+       * <code>optional double weight_sum = 1;</code>
        */
-      public long getNumber() {
-        return number_;
+      public double getWeightSum() {
+        return weightSum_;
       }
       /**
-       * <pre>
-       * should be 15 or less
-       * </pre>
-       *
-       * <code>optional uint64 number = 1;</code>
+       * <code>optional double weight_sum = 1;</code>
        */
-      public Builder setNumber(long value) {
+      public Builder setWeightSum(double value) {
         bitField0_ |= 0x00000001;
-        number_ = value;
+        weightSum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       * should be 15 or less
-       * </pre>
-       *
-       * <code>optional uint64 number = 1;</code>
+       * <code>optional double weight_sum = 1;</code>
        */
-      public Builder clearNumber() {
+      public Builder clearWeightSum() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        number_ = 0L;
+        weightSum_ = 0D;
         onChanged();
         return this;
       }
 
-      private int processid_ ;
+      private double mergingWeight_ ;
       /**
-       * <code>optional int32 processid = 2;</code>
+       * <code>optional double merging_weight = 2;</code>
        */
-      public boolean hasProcessid() {
+      public boolean hasMergingWeight() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 processid = 2;</code>
+       * <code>optional double merging_weight = 2;</code>
        */
-      public int getProcessid() {
-        return processid_;
+      public double getMergingWeight() {
+        return mergingWeight_;
       }
       /**
-       * <code>optional int32 processid = 2;</code>
+       * <code>optional double merging_weight = 2;</code>
        */
-      public Builder setProcessid(int value) {
+      public Builder setMergingWeight(double value) {
         bitField0_ |= 0x00000002;
-        processid_ = value;
+        mergingWeight_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 processid = 2;</code>
+       * <code>optional double merging_weight = 2;</code>
        */
-      public Builder clearProcessid() {
+      public Builder clearMergingWeight() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        processid_ = 0;
+        mergingWeight_ = 0D;
         onChanged();
         return this;
       }
@@ -1381,97 +2256,33 @@ public final class Mc {
         return this;
       }
 
-      private double weightSum_ ;
+      private double x1_ ;
       /**
-       * <code>optional double weight_sum = 8;</code>
+       * <code>optional double x1 = 8;</code>
        */
-      public boolean hasWeightSum() {
+      public boolean hasX1() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional double weight_sum = 8;</code>
-       */
-      public double getWeightSum() {
-        return weightSum_;
-      }
-      /**
-       * <code>optional double weight_sum = 8;</code>
-       */
-      public Builder setWeightSum(double value) {
-        bitField0_ |= 0x00000080;
-        weightSum_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional double weight_sum = 8;</code>
-       */
-      public Builder clearWeightSum() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        weightSum_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private double mergingWeight_ ;
-      /**
-       * <code>optional double merging_weight = 9;</code>
-       */
-      public boolean hasMergingWeight() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      /**
-       * <code>optional double merging_weight = 9;</code>
-       */
-      public double getMergingWeight() {
-        return mergingWeight_;
-      }
-      /**
-       * <code>optional double merging_weight = 9;</code>
-       */
-      public Builder setMergingWeight(double value) {
-        bitField0_ |= 0x00000100;
-        mergingWeight_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional double merging_weight = 9;</code>
-       */
-      public Builder clearMergingWeight() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        mergingWeight_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private double x1_ ;
-      /**
-       * <code>optional double x1 = 10;</code>
-       */
-      public boolean hasX1() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      /**
-       * <code>optional double x1 = 10;</code>
+       * <code>optional double x1 = 8;</code>
        */
       public double getX1() {
         return x1_;
       }
       /**
-       * <code>optional double x1 = 10;</code>
+       * <code>optional double x1 = 8;</code>
        */
       public Builder setX1(double value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000080;
         x1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double x1 = 10;</code>
+       * <code>optional double x1 = 8;</code>
        */
       public Builder clearX1() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000080);
         x1_ = 0D;
         onChanged();
         return this;
@@ -1479,31 +2290,31 @@ public final class Mc {
 
       private double x2_ ;
       /**
-       * <code>optional double x2 = 11;</code>
+       * <code>optional double x2 = 9;</code>
        */
       public boolean hasX2() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional double x2 = 11;</code>
+       * <code>optional double x2 = 9;</code>
        */
       public double getX2() {
         return x2_;
       }
       /**
-       * <code>optional double x2 = 11;</code>
+       * <code>optional double x2 = 9;</code>
        */
       public Builder setX2(double value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000100;
         x2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double x2 = 11;</code>
+       * <code>optional double x2 = 9;</code>
        */
       public Builder clearX2() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000100);
         x2_ = 0D;
         onChanged();
         return this;
@@ -1511,31 +2322,31 @@ public final class Mc {
 
       private long id1_ ;
       /**
-       * <code>optional uint64 id1 = 12;</code>
+       * <code>optional uint64 id1 = 10;</code>
        */
       public boolean hasId1() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional uint64 id1 = 12;</code>
+       * <code>optional uint64 id1 = 10;</code>
        */
       public long getId1() {
         return id1_;
       }
       /**
-       * <code>optional uint64 id1 = 12;</code>
+       * <code>optional uint64 id1 = 10;</code>
        */
       public Builder setId1(long value) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00000200;
         id1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint64 id1 = 12;</code>
+       * <code>optional uint64 id1 = 10;</code>
        */
       public Builder clearId1() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000200);
         id1_ = 0L;
         onChanged();
         return this;
@@ -1543,31 +2354,31 @@ public final class Mc {
 
       private long id2_ ;
       /**
-       * <code>optional uint64 id2 = 13;</code>
+       * <code>optional uint64 id2 = 11;</code>
        */
       public boolean hasId2() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional uint64 id2 = 13;</code>
+       * <code>optional uint64 id2 = 11;</code>
        */
       public long getId2() {
         return id2_;
       }
       /**
-       * <code>optional uint64 id2 = 13;</code>
+       * <code>optional uint64 id2 = 11;</code>
        */
       public Builder setId2(long value) {
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00000400;
         id2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint64 id2 = 13;</code>
+       * <code>optional uint64 id2 = 11;</code>
        */
       public Builder clearId2() {
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000400);
         id2_ = 0L;
         onChanged();
         return this;
@@ -1585,51 +2396,56 @@ public final class Mc {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proio.model.mc.PythiaParameters)
+      // @@protoc_insertion_point(builder_scope:proio.model.mc.Pythia8Parameters)
     }
 
-    // @@protoc_insertion_point(class_scope:proio.model.mc.PythiaParameters)
-    private static final proio.model.Mc.PythiaParameters DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proio.model.mc.Pythia8Parameters)
+    private static final proio.model.Mc.Pythia8Parameters DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new proio.model.Mc.PythiaParameters();
+      DEFAULT_INSTANCE = new proio.model.Mc.Pythia8Parameters();
     }
 
-    public static proio.model.Mc.PythiaParameters getDefaultInstance() {
+    public static proio.model.Mc.Pythia8Parameters getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PythiaParameters>
-        PARSER = new com.google.protobuf.AbstractParser<PythiaParameters>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Pythia8Parameters>
+        PARSER = new com.google.protobuf.AbstractParser<Pythia8Parameters>() {
       @java.lang.Override
-      public PythiaParameters parsePartialFrom(
+      public Pythia8Parameters parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PythiaParameters(input, extensionRegistry);
+        return new Pythia8Parameters(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PythiaParameters> parser() {
+    public static com.google.protobuf.Parser<Pythia8Parameters> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PythiaParameters> getParserForType() {
+    public com.google.protobuf.Parser<Pythia8Parameters> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public proio.model.Mc.PythiaParameters getDefaultInstanceForType() {
+    public proio.model.Mc.Pythia8Parameters getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proio_model_mc_PythiaParameters_descriptor;
+    internal_static_proio_model_mc_MCParameters_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proio_model_mc_PythiaParameters_fieldAccessorTable;
+      internal_static_proio_model_mc_MCParameters_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proio_model_mc_Pythia8Parameters_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proio_model_mc_Pythia8Parameters_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1639,15 +2455,17 @@ public final class Mc {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024proio/model/mc.proto\022\016proio.model.mc\"\353" +
-      "\001\n\020PythiaParameters\022\016\n\006number\030\001 \001(\004\022\021\n\tp" +
-      "rocessid\030\002 \001(\005\022\016\n\006pt_hat\030\003 \001(\001\022\020\n\010alpha_" +
-      "em\030\004 \001(\001\022\017\n\007alpha_s\030\005 \001(\001\022\023\n\013scale_q_fac" +
-      "\030\006 \001(\001\022\016\n\006weight\030\007 \001(\001\022\022\n\nweight_sum\030\010 \001" +
-      "(\001\022\026\n\016merging_weight\030\t \001(\001\022\n\n\002x1\030\n \001(\001\022\n" +
-      "\n\002x2\030\013 \001(\001\022\013\n\003id1\030\014 \001(\004\022\013\n\003id2\030\r \001(\004BC\n\013" +
-      "proio.modelB\002McZ0github.com/decibelcoope" +
-      "r/proio/go-proio/model/mc"
+      "\n\024proio/model/mc.proto\022\016proio.model.mc\"a" +
+      "\n\014MCParameters\022\016\n\006number\030\001 \001(\004\022\021\n\tproces" +
+      "sid\030\002 \001(\005\022\016\n\006weight\030\003 \001(\001\022\016\n\006iarray\030\004 \003(" +
+      "\005\022\016\n\006darray\030\005 \003(\001\"\311\001\n\021Pythia8Parameters\022" +
+      "\022\n\nweight_sum\030\001 \001(\001\022\026\n\016merging_weight\030\002 " +
+      "\001(\001\022\016\n\006pt_hat\030\003 \001(\001\022\020\n\010alpha_em\030\004 \001(\001\022\017\n" +
+      "\007alpha_s\030\005 \001(\001\022\023\n\013scale_q_fac\030\006 \001(\001\022\016\n\006w" +
+      "eight\030\007 \001(\001\022\n\n\002x1\030\010 \001(\001\022\n\n\002x2\030\t \001(\001\022\013\n\003i" +
+      "d1\030\n \001(\004\022\013\n\003id2\030\013 \001(\004BC\n\013proio.modelB\002Mc" +
+      "Z0github.com/decibelcooper/proio/go-proi" +
+      "o/model/mc"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1661,12 +2479,18 @@ public final class Mc {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_proio_model_mc_PythiaParameters_descriptor =
+    internal_static_proio_model_mc_MCParameters_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_proio_model_mc_PythiaParameters_fieldAccessorTable = new
+    internal_static_proio_model_mc_MCParameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proio_model_mc_PythiaParameters_descriptor,
-        new java.lang.String[] { "Number", "Processid", "PtHat", "AlphaEm", "AlphaS", "ScaleQFac", "Weight", "WeightSum", "MergingWeight", "X1", "X2", "Id1", "Id2", });
+        internal_static_proio_model_mc_MCParameters_descriptor,
+        new java.lang.String[] { "Number", "Processid", "Weight", "Iarray", "Darray", });
+    internal_static_proio_model_mc_Pythia8Parameters_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_proio_model_mc_Pythia8Parameters_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proio_model_mc_Pythia8Parameters_descriptor,
+        new java.lang.String[] { "WeightSum", "MergingWeight", "PtHat", "AlphaEm", "AlphaS", "ScaleQFac", "Weight", "X1", "X2", "Id1", "Id2", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
