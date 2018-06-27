@@ -10,23 +10,30 @@ message MCParameters {
     optional uint64 number = 1;
     optional int32 processid = 2;
     optional double weight = 3;
-    repeated int32  iarray = 4;
-    repeated double darray = 5;
+    repeated MapInt imap = 4;      // keep metadata as key-value (int) 
+    repeated MapDouble dmap = 5; // keep metadata as key-value (double)
 }
-
-
+ // map to store arbitrary data as key-int value 
+message MapInt {
+    required string key = 1;        // key for integer value 
+    repeated sint32 value = 2;      // value 
+   }
+  // map to store arbitrary data as key-double value 
+message MapDouble {
+    required string key = 1;        // key for double value
+    repeated double value = 2;      // value
+   }
 // this block is only for Pythia8
-message Pythia8Parameters {
+message Pythia8Parameters {   
     optional double weight_sum = 1;
     optional double merging_weight = 2;
-    optional double pt_hat = 3;
+    optional double pt_hat = 3;     //transverse momentum
     optional double alpha_em = 4;
     optional double alpha_s = 5;
-    optional double scale_q_fac = 6;
-    optional double weight = 7;
-    optional double x1 = 8;
-    optional double x2 = 9;
-    optional uint64 id1 = 10;
-    optional uint64 id2 = 11;
-
+    optional double scale_q_fac = 6;// Q-scale used in evaluation of PDF’s (in GeV)
+    optional double weight = 7;     // event weight 
+    optional double x1 = 8;         // fraction of beam momentum carried by first parton (”beam side”)
+    optional double x2 = 9;         // fraction of beam momentum carried by second parton (”target side”)
+    optional uint64 id1 = 10;       // flavour code of first parton
+    optional uint64 id2 = 11;       // flavour code of second parton
 }
