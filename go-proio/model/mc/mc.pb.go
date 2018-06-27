@@ -36,10 +36,12 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // this message is for general Monte Carlo generators
 type MCParameters struct {
-	Number           *uint64      `protobuf:"varint,1,opt,name=number" json:"number,omitempty"`
-	Processid        *int32       `protobuf:"varint,2,opt,name=processid" json:"processid,omitempty"`
-	Weight           *float64     `protobuf:"fixed64,3,opt,name=weight" json:"weight,omitempty"`
-	Imap             []*MapInt    `protobuf:"bytes,4,rep,name=imap" json:"imap,omitempty"`
+	Number    *uint64  `protobuf:"varint,1,opt,name=number" json:"number,omitempty"`
+	Processid *int32   `protobuf:"varint,2,opt,name=processid" json:"processid,omitempty"`
+	Weight    *float64 `protobuf:"fixed64,3,opt,name=weight" json:"weight,omitempty"`
+	// keep metadata as key-value (int)
+	Imap []*MapInt `protobuf:"bytes,4,rep,name=imap" json:"imap,omitempty"`
+	// keep metadata as key-value (double)
 	Dmap             []*MapDouble `protobuf:"bytes,5,rep,name=dmap" json:"dmap,omitempty"`
 	XXX_unrecognized []byte       `json:"-"`
 }
@@ -86,7 +88,9 @@ func (m *MCParameters) GetDmap() []*MapDouble {
 
 // map to store arbitrary data as key-int value
 type MapInt struct {
-	Key              *string `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	// key for integer value
+	Key *string `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	// value
 	Value            []int32 `protobuf:"zigzag32,2,rep,name=value" json:"value,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
@@ -112,7 +116,9 @@ func (m *MapInt) GetValue() []int32 {
 
 // map to store arbitrary data as key-double value
 type MapDouble struct {
-	Key              *string   `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	// key for double value
+	Key *string `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	// value
 	Value            []float64 `protobuf:"fixed64,2,rep,name=value" json:"value,omitempty"`
 	XXX_unrecognized []byte    `json:"-"`
 }
@@ -138,18 +144,25 @@ func (m *MapDouble) GetValue() []float64 {
 
 // this block is only for Pythia8
 type Pythia8Parameters struct {
-	WeightSum        *float64 `protobuf:"fixed64,1,opt,name=weight_sum,json=weightSum" json:"weight_sum,omitempty"`
-	MergingWeight    *float64 `protobuf:"fixed64,2,opt,name=merging_weight,json=mergingWeight" json:"merging_weight,omitempty"`
-	PtHat            *float64 `protobuf:"fixed64,3,opt,name=pt_hat,json=ptHat" json:"pt_hat,omitempty"`
-	AlphaEm          *float64 `protobuf:"fixed64,4,opt,name=alpha_em,json=alphaEm" json:"alpha_em,omitempty"`
-	AlphaS           *float64 `protobuf:"fixed64,5,opt,name=alpha_s,json=alphaS" json:"alpha_s,omitempty"`
-	ScaleQFac        *float64 `protobuf:"fixed64,6,opt,name=scale_q_fac,json=scaleQFac" json:"scale_q_fac,omitempty"`
-	Weight           *float64 `protobuf:"fixed64,7,opt,name=weight" json:"weight,omitempty"`
-	X1               *float64 `protobuf:"fixed64,8,opt,name=x1" json:"x1,omitempty"`
-	X2               *float64 `protobuf:"fixed64,9,opt,name=x2" json:"x2,omitempty"`
-	Id1              *uint64  `protobuf:"varint,10,opt,name=id1" json:"id1,omitempty"`
-	Id2              *uint64  `protobuf:"varint,11,opt,name=id2" json:"id2,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	WeightSum     *float64 `protobuf:"fixed64,1,opt,name=weight_sum,json=weightSum" json:"weight_sum,omitempty"`
+	MergingWeight *float64 `protobuf:"fixed64,2,opt,name=merging_weight,json=mergingWeight" json:"merging_weight,omitempty"`
+	// transverse momentum
+	PtHat   *float64 `protobuf:"fixed64,3,opt,name=pt_hat,json=ptHat" json:"pt_hat,omitempty"`
+	AlphaEm *float64 `protobuf:"fixed64,4,opt,name=alpha_em,json=alphaEm" json:"alpha_em,omitempty"`
+	AlphaS  *float64 `protobuf:"fixed64,5,opt,name=alpha_s,json=alphaS" json:"alpha_s,omitempty"`
+	// Q-scale used in evaluation of PDF’s (in GeV)
+	ScaleQFac *float64 `protobuf:"fixed64,6,opt,name=scale_q_fac,json=scaleQFac" json:"scale_q_fac,omitempty"`
+	// event weight
+	Weight *float64 `protobuf:"fixed64,7,opt,name=weight" json:"weight,omitempty"`
+	// fraction of beam momentum carried by first parton (”beam side”)
+	X1 *float64 `protobuf:"fixed64,8,opt,name=x1" json:"x1,omitempty"`
+	// fraction of beam momentum carried by second parton (”target side”)
+	X2 *float64 `protobuf:"fixed64,9,opt,name=x2" json:"x2,omitempty"`
+	// flavour code of first parton
+	Id1 *uint64 `protobuf:"varint,10,opt,name=id1" json:"id1,omitempty"`
+	// flavour code of second parton
+	Id2              *uint64 `protobuf:"varint,11,opt,name=id2" json:"id2,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Pythia8Parameters) Reset()                    { *m = Pythia8Parameters{} }
