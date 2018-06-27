@@ -9,6 +9,8 @@
 
 	It has these top-level messages:
 		MCParameters
+		MapInt
+		MapDouble
 		Pythia8Parameters
 */
 package mc
@@ -34,12 +36,12 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // this message is for general Monte Carlo generators
 type MCParameters struct {
-	Number           *uint64   `protobuf:"varint,1,opt,name=number" json:"number,omitempty"`
-	Processid        *int32    `protobuf:"varint,2,opt,name=processid" json:"processid,omitempty"`
-	Weight           *float64  `protobuf:"fixed64,3,opt,name=weight" json:"weight,omitempty"`
-	Iarray           []int32   `protobuf:"varint,4,rep,name=iarray" json:"iarray,omitempty"`
-	Darray           []float64 `protobuf:"fixed64,5,rep,name=darray" json:"darray,omitempty"`
-	XXX_unrecognized []byte    `json:"-"`
+	Number           *uint64      `protobuf:"varint,1,opt,name=number" json:"number,omitempty"`
+	Processid        *int32       `protobuf:"varint,2,opt,name=processid" json:"processid,omitempty"`
+	Weight           *float64     `protobuf:"fixed64,3,opt,name=weight" json:"weight,omitempty"`
+	Imap             []*MapInt    `protobuf:"bytes,4,rep,name=imap" json:"imap,omitempty"`
+	Dmap             []*MapDouble `protobuf:"bytes,5,rep,name=dmap" json:"dmap,omitempty"`
+	XXX_unrecognized []byte       `json:"-"`
 }
 
 func (m *MCParameters) Reset()                    { *m = MCParameters{} }
@@ -68,16 +70,68 @@ func (m *MCParameters) GetWeight() float64 {
 	return 0
 }
 
-func (m *MCParameters) GetIarray() []int32 {
+func (m *MCParameters) GetImap() []*MapInt {
 	if m != nil {
-		return m.Iarray
+		return m.Imap
 	}
 	return nil
 }
 
-func (m *MCParameters) GetDarray() []float64 {
+func (m *MCParameters) GetDmap() []*MapDouble {
 	if m != nil {
-		return m.Darray
+		return m.Dmap
+	}
+	return nil
+}
+
+// map to store arbitrary data as key-int value
+type MapInt struct {
+	Key              *string `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	Value            []int32 `protobuf:"zigzag32,2,rep,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
+func (m *MapInt) Reset()                    { *m = MapInt{} }
+func (m *MapInt) String() string            { return proto.CompactTextString(m) }
+func (*MapInt) ProtoMessage()               {}
+func (*MapInt) Descriptor() ([]byte, []int) { return fileDescriptorMc, []int{1} }
+
+func (m *MapInt) GetKey() string {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return ""
+}
+
+func (m *MapInt) GetValue() []int32 {
+	if m != nil {
+		return m.Value
+	}
+	return nil
+}
+
+// map to store arbitrary data as key-double value
+type MapDouble struct {
+	Key              *string   `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	Value            []float64 `protobuf:"fixed64,2,rep,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte    `json:"-"`
+}
+
+func (m *MapDouble) Reset()                    { *m = MapDouble{} }
+func (m *MapDouble) String() string            { return proto.CompactTextString(m) }
+func (*MapDouble) ProtoMessage()               {}
+func (*MapDouble) Descriptor() ([]byte, []int) { return fileDescriptorMc, []int{2} }
+
+func (m *MapDouble) GetKey() string {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return ""
+}
+
+func (m *MapDouble) GetValue() []float64 {
+	if m != nil {
+		return m.Value
 	}
 	return nil
 }
@@ -101,7 +155,7 @@ type Pythia8Parameters struct {
 func (m *Pythia8Parameters) Reset()                    { *m = Pythia8Parameters{} }
 func (m *Pythia8Parameters) String() string            { return proto.CompactTextString(m) }
 func (*Pythia8Parameters) ProtoMessage()               {}
-func (*Pythia8Parameters) Descriptor() ([]byte, []int) { return fileDescriptorMc, []int{1} }
+func (*Pythia8Parameters) Descriptor() ([]byte, []int) { return fileDescriptorMc, []int{3} }
 
 func (m *Pythia8Parameters) GetWeightSum() float64 {
 	if m != nil && m.WeightSum != nil {
@@ -182,6 +236,8 @@ func (m *Pythia8Parameters) GetId2() uint64 {
 
 func init() {
 	proto.RegisterType((*MCParameters)(nil), "proio.model.mc.MCParameters")
+	proto.RegisterType((*MapInt)(nil), "proio.model.mc.MapInt")
+	proto.RegisterType((*MapDouble)(nil), "proio.model.mc.MapDouble")
 	proto.RegisterType((*Pythia8Parameters)(nil), "proio.model.mc.Pythia8Parameters")
 }
 func (m *MCParameters) Marshal() (dAtA []byte, err error) {
@@ -215,19 +271,108 @@ func (m *MCParameters) MarshalTo(dAtA []byte) (int, error) {
 		binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(*m.Weight))))
 		i += 8
 	}
-	if len(m.Iarray) > 0 {
-		for _, num := range m.Iarray {
-			dAtA[i] = 0x20
+	if len(m.Imap) > 0 {
+		for _, msg := range m.Imap {
+			dAtA[i] = 0x22
 			i++
-			i = encodeVarintMc(dAtA, i, uint64(num))
+			i = encodeVarintMc(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
 		}
 	}
-	if len(m.Darray) > 0 {
-		for _, num := range m.Darray {
-			dAtA[i] = 0x29
+	if len(m.Dmap) > 0 {
+		for _, msg := range m.Dmap {
+			dAtA[i] = 0x2a
 			i++
-			f1 := math.Float64bits(float64(num))
-			binary.LittleEndian.PutUint64(dAtA[i:], uint64(f1))
+			i = encodeVarintMc(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *MapInt) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MapInt) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Key == nil {
+		return 0, new(proto.RequiredNotSetError)
+	} else {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintMc(dAtA, i, uint64(len(*m.Key)))
+		i += copy(dAtA[i:], *m.Key)
+	}
+	if len(m.Value) > 0 {
+		for _, num := range m.Value {
+			dAtA[i] = 0x10
+			i++
+			x1 := (uint32(num) << 1) ^ uint32((num >> 31))
+			for x1 >= 1<<7 {
+				dAtA[i] = uint8(uint64(x1)&0x7f | 0x80)
+				x1 >>= 7
+				i++
+			}
+			dAtA[i] = uint8(x1)
+			i++
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *MapDouble) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MapDouble) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Key == nil {
+		return 0, new(proto.RequiredNotSetError)
+	} else {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintMc(dAtA, i, uint64(len(*m.Key)))
+		i += copy(dAtA[i:], *m.Key)
+	}
+	if len(m.Value) > 0 {
+		for _, num := range m.Value {
+			dAtA[i] = 0x11
+			i++
+			f2 := math.Float64bits(float64(num))
+			binary.LittleEndian.PutUint64(dAtA[i:], uint64(f2))
 			i += 8
 		}
 	}
@@ -343,13 +488,51 @@ func (m *MCParameters) Size() (n int) {
 	if m.Weight != nil {
 		n += 9
 	}
-	if len(m.Iarray) > 0 {
-		for _, e := range m.Iarray {
-			n += 1 + sovMc(uint64(e))
+	if len(m.Imap) > 0 {
+		for _, e := range m.Imap {
+			l = e.Size()
+			n += 1 + l + sovMc(uint64(l))
 		}
 	}
-	if len(m.Darray) > 0 {
-		n += 9 * len(m.Darray)
+	if len(m.Dmap) > 0 {
+		for _, e := range m.Dmap {
+			l = e.Size()
+			n += 1 + l + sovMc(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *MapInt) Size() (n int) {
+	var l int
+	_ = l
+	if m.Key != nil {
+		l = len(*m.Key)
+		n += 1 + l + sovMc(uint64(l))
+	}
+	if len(m.Value) > 0 {
+		for _, e := range m.Value {
+			n += 1 + sozMc(uint64(e))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *MapDouble) Size() (n int) {
+	var l int
+	_ = l
+	if m.Key != nil {
+		l = len(*m.Key)
+		n += 1 + l + sovMc(uint64(l))
+	}
+	if len(m.Value) > 0 {
+		n += 9 * len(m.Value)
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -494,6 +677,151 @@ func (m *MCParameters) Unmarshal(dAtA []byte) error {
 			v2 := float64(math.Float64frombits(v))
 			m.Weight = &v2
 		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Imap", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMc
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMc
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Imap = append(m.Imap, &MapInt{})
+			if err := m.Imap[len(m.Imap)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Dmap", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMc
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMc
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Dmap = append(m.Dmap, &MapDouble{})
+			if err := m.Dmap[len(m.Dmap)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMc(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMc
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MapInt) Unmarshal(dAtA []byte) error {
+	var hasFields [1]uint64
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMc
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MapInt: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MapInt: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Key", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMc
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= (uint64(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMc
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			s := string(dAtA[iNdEx:postIndex])
+			m.Key = &s
+			iNdEx = postIndex
+			hasFields[0] |= uint64(0x00000001)
+		case 2:
 			if wireType == 0 {
 				var v int32
 				for shift := uint(0); ; shift += 7 {
@@ -510,7 +838,8 @@ func (m *MCParameters) Unmarshal(dAtA []byte) error {
 						break
 					}
 				}
-				m.Iarray = append(m.Iarray, v)
+				v = int32((uint32(v) >> 1) ^ uint32(((v&1)<<31)>>31))
+				m.Value = append(m.Value, v)
 			} else if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
@@ -550,12 +879,99 @@ func (m *MCParameters) Unmarshal(dAtA []byte) error {
 							break
 						}
 					}
-					m.Iarray = append(m.Iarray, v)
+					v = int32((uint32(v) >> 1) ^ uint32(((v&1)<<31)>>31))
+					m.Value = append(m.Value, v)
 				}
 			} else {
-				return fmt.Errorf("proto: wrong wireType = %d for field Iarray", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Value", wireType)
 			}
-		case 5:
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMc(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMc
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+	if hasFields[0]&uint64(0x00000001) == 0 {
+		return new(proto.RequiredNotSetError)
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MapDouble) Unmarshal(dAtA []byte) error {
+	var hasFields [1]uint64
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMc
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MapDouble: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MapDouble: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Key", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMc
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= (uint64(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMc
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			s := string(dAtA[iNdEx:postIndex])
+			m.Key = &s
+			iNdEx = postIndex
+			hasFields[0] |= uint64(0x00000001)
+		case 2:
 			if wireType == 1 {
 				var v uint64
 				if (iNdEx + 8) > l {
@@ -564,7 +980,7 @@ func (m *MCParameters) Unmarshal(dAtA []byte) error {
 				v = uint64(binary.LittleEndian.Uint64(dAtA[iNdEx:]))
 				iNdEx += 8
 				v2 := float64(math.Float64frombits(v))
-				m.Darray = append(m.Darray, v2)
+				m.Value = append(m.Value, v2)
 			} else if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
@@ -596,10 +1012,10 @@ func (m *MCParameters) Unmarshal(dAtA []byte) error {
 					v = uint64(binary.LittleEndian.Uint64(dAtA[iNdEx:]))
 					iNdEx += 8
 					v2 := float64(math.Float64frombits(v))
-					m.Darray = append(m.Darray, v2)
+					m.Value = append(m.Value, v2)
 				}
 			} else {
-				return fmt.Errorf("proto: wrong wireType = %d for field Darray", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Value", wireType)
 			}
 		default:
 			iNdEx = preIndex
@@ -616,6 +1032,9 @@ func (m *MCParameters) Unmarshal(dAtA []byte) error {
 			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
+	}
+	if hasFields[0]&uint64(0x00000001) == 0 {
+		return new(proto.RequiredNotSetError)
 	}
 
 	if iNdEx > l {
@@ -930,29 +1349,33 @@ var (
 func init() { proto.RegisterFile("proio/model/mc.proto", fileDescriptorMc) }
 
 var fileDescriptorMc = []byte{
-	// 379 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x92, 0x4f, 0x8e, 0xd3, 0x30,
-	0x14, 0x87, 0x71, 0xd2, 0x74, 0xa6, 0xaf, 0x50, 0x81, 0xc5, 0x1f, 0x23, 0x41, 0x14, 0x8d, 0x84,
-	0x94, 0x0d, 0x09, 0xcd, 0x8a, 0xf5, 0x20, 0x10, 0x9b, 0x4a, 0x25, 0x5d, 0x20, 0xb1, 0x89, 0x5c,
-	0xc7, 0x24, 0x96, 0xe2, 0x3a, 0x38, 0x8e, 0x68, 0xef, 0xc0, 0x01, 0x58, 0x72, 0x1c, 0x96, 0x1c,
-	0x01, 0x95, 0x8b, 0xa0, 0xd8, 0xa9, 0xa6, 0xdd, 0xbd, 0xef, 0xcb, 0x8b, 0xf5, 0xf3, 0xf3, 0x83,
-	0xc7, 0xad, 0x56, 0x42, 0xa5, 0x52, 0x95, 0xbc, 0x49, 0x25, 0x4b, 0x5a, 0xad, 0x8c, 0xc2, 0x0b,
-	0x6b, 0x13, 0x6b, 0x13, 0xc9, 0x6e, 0x7e, 0x20, 0xb8, 0xbf, 0x7a, 0xb7, 0xa6, 0x9a, 0x4a, 0x6e,
-	0xb8, 0xee, 0xf0, 0x53, 0x98, 0xee, 0x7a, 0xb9, 0xe5, 0x9a, 0xa0, 0x08, 0xc5, 0x93, 0x7c, 0x24,
-	0xfc, 0x02, 0x66, 0xad, 0x56, 0x8c, 0x77, 0x9d, 0x28, 0x89, 0x17, 0xa1, 0x38, 0xc8, 0xef, 0xc4,
-	0xf0, 0xd7, 0x77, 0x2e, 0xaa, 0xda, 0x10, 0x3f, 0x42, 0x31, 0xca, 0x47, 0x1a, 0xbc, 0xa0, 0x5a,
-	0xd3, 0x03, 0x99, 0x44, 0x7e, 0x1c, 0xe4, 0x23, 0x0d, 0xbe, 0x74, 0x3e, 0x88, 0xfc, 0xa1, 0xdf,
-	0xd1, 0xcd, 0x2f, 0x0f, 0x1e, 0xad, 0x0f, 0xa6, 0x16, 0xf4, 0xed, 0x59, 0xa6, 0x97, 0x00, 0xee,
-	0xbc, 0xa2, 0xeb, 0xa5, 0xcd, 0x85, 0xf2, 0x99, 0x33, 0x9b, 0x5e, 0xe2, 0x57, 0xb0, 0x90, 0x5c,
-	0x57, 0x62, 0x57, 0x15, 0x63, 0x08, 0xcf, 0xb6, 0x3c, 0x18, 0xed, 0x67, 0x97, 0xe5, 0x09, 0x4c,
-	0x5b, 0x53, 0xd4, 0xf4, 0x94, 0x31, 0x68, 0xcd, 0x47, 0x6a, 0xf0, 0x73, 0xb8, 0xa6, 0x4d, 0x5b,
-	0xd3, 0x82, 0x4b, 0x32, 0xb1, 0x1f, 0xae, 0x2c, 0xbf, 0x97, 0xf8, 0x19, 0xb8, 0xb2, 0xe8, 0x48,
-	0xe0, 0xae, 0x65, 0x71, 0x83, 0x43, 0x98, 0x77, 0x8c, 0x36, 0xbc, 0xf8, 0x56, 0x7c, 0xa5, 0x8c,
-	0x4c, 0x5d, 0x22, 0xab, 0x3e, 0x7d, 0xa0, 0xec, 0x6c, 0x1c, 0x57, 0x17, 0xe3, 0x58, 0x80, 0xb7,
-	0x5f, 0x92, 0x6b, 0xeb, 0xbc, 0xfd, 0xd2, 0x72, 0x46, 0x66, 0x23, 0x67, 0xf8, 0x21, 0xf8, 0xa2,
-	0x5c, 0x12, 0xb0, 0x93, 0x1f, 0x4a, 0x67, 0x32, 0x32, 0x3f, 0x99, 0xec, 0x76, 0xf3, 0xfb, 0x18,
-	0xa2, 0x3f, 0xc7, 0x10, 0xfd, 0x3d, 0x86, 0xe8, 0xe7, 0xbf, 0xf0, 0x1e, 0xcc, 0xcf, 0xde, 0xf4,
-	0xd6, 0x5b, 0xb1, 0x2f, 0x6f, 0x2a, 0x61, 0xea, 0x7e, 0x9b, 0x30, 0x25, 0xd3, 0x92, 0x33, 0xb1,
-	0xe5, 0x0d, 0x53, 0xaa, 0xe5, 0x3a, 0x75, 0x3b, 0x51, 0xa9, 0xd7, 0x97, 0xcb, 0xf1, 0x3f, 0x00,
-	0x00, 0xff, 0xff, 0xf2, 0x98, 0xb2, 0xf6, 0x2d, 0x02, 0x00, 0x00,
+	// 446 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x92, 0xdf, 0x6e, 0xd3, 0x30,
+	0x14, 0xc6, 0x71, 0x9a, 0x74, 0xcb, 0x29, 0x4c, 0xcc, 0x1a, 0xc3, 0x93, 0x20, 0x8a, 0x2a, 0x21,
+	0x45, 0x48, 0x4b, 0xd7, 0x70, 0xc3, 0xf5, 0xf8, 0x23, 0xb8, 0xa8, 0x34, 0xd2, 0x0b, 0x24, 0x6e,
+	0x22, 0xd7, 0x31, 0x49, 0x44, 0x5c, 0x9b, 0xc4, 0x81, 0xed, 0x4d, 0xb8, 0xe4, 0x2d, 0x78, 0x05,
+	0x2e, 0x79, 0x04, 0x54, 0x5e, 0x04, 0xc5, 0x4e, 0xa1, 0x95, 0x90, 0xb8, 0x3b, 0xdf, 0x2f, 0xdf,
+	0x89, 0xed, 0xef, 0x1c, 0x38, 0x51, 0x8d, 0xac, 0xe4, 0x4c, 0xc8, 0x9c, 0xd7, 0x33, 0xc1, 0x62,
+	0xd5, 0x48, 0x2d, 0xf1, 0x91, 0xa1, 0xb1, 0xa1, 0xb1, 0x60, 0xd3, 0x6f, 0x08, 0x6e, 0x2f, 0x9e,
+	0x5d, 0xd1, 0x86, 0x0a, 0xae, 0x79, 0xd3, 0xe2, 0x53, 0x18, 0xaf, 0x3b, 0xb1, 0xe2, 0x0d, 0x41,
+	0x21, 0x8a, 0xdc, 0x74, 0x50, 0xf8, 0x01, 0xf8, 0xaa, 0x91, 0x8c, 0xb7, 0x6d, 0x95, 0x13, 0x27,
+	0x44, 0x91, 0x97, 0xfe, 0x05, 0x7d, 0xd7, 0x67, 0x5e, 0x15, 0xa5, 0x26, 0xa3, 0x10, 0x45, 0x28,
+	0x1d, 0x14, 0x7e, 0x0c, 0x6e, 0x25, 0xa8, 0x22, 0x6e, 0x38, 0x8a, 0x26, 0xc9, 0x69, 0xbc, 0x7f,
+	0x7a, 0xbc, 0xa0, 0xea, 0xf5, 0x5a, 0xa7, 0xc6, 0x83, 0xcf, 0xc1, 0xcd, 0x7b, 0xaf, 0x67, 0xbc,
+	0x67, 0xff, 0xf0, 0x3e, 0x97, 0xdd, 0xaa, 0xe6, 0xa9, 0xb1, 0x4d, 0x2f, 0x60, 0x6c, 0xdb, 0xf1,
+	0x5d, 0x18, 0x7d, 0xe0, 0x37, 0x04, 0x85, 0x4e, 0xe4, 0xa7, 0x7d, 0x89, 0x4f, 0xc0, 0xfb, 0x44,
+	0xeb, 0x8e, 0x13, 0x27, 0x1c, 0x45, 0xc7, 0xa9, 0x15, 0xd3, 0x27, 0xe0, 0xff, 0xf9, 0xc9, 0xff,
+	0x9a, 0xd0, 0xb6, 0xe9, 0xab, 0x03, 0xc7, 0x57, 0x37, 0xba, 0xac, 0xe8, 0xd3, 0x9d, 0x94, 0x1e,
+	0x02, 0xd8, 0x17, 0x66, 0x6d, 0x27, 0x4c, 0x52, 0x28, 0xf5, 0x2d, 0x59, 0x76, 0x02, 0x3f, 0x82,
+	0x23, 0xc1, 0x9b, 0xa2, 0x5a, 0x17, 0xd9, 0x10, 0x8b, 0x63, 0x2c, 0x77, 0x06, 0xfa, 0xd6, 0xa6,
+	0x73, 0x0f, 0xc6, 0x4a, 0x67, 0x25, 0xdd, 0xa6, 0xe6, 0x29, 0xfd, 0x8a, 0x6a, 0x7c, 0x06, 0x87,
+	0xb4, 0x56, 0x25, 0xcd, 0xb8, 0x20, 0xae, 0xf9, 0x70, 0x60, 0xf4, 0x0b, 0x81, 0xef, 0x83, 0x2d,
+	0xb3, 0x96, 0x78, 0x36, 0x68, 0x23, 0x97, 0x38, 0x80, 0x49, 0xcb, 0x68, 0xcd, 0xb3, 0x8f, 0xd9,
+	0x7b, 0xca, 0xc8, 0xd8, 0xde, 0xc8, 0xa0, 0x37, 0x2f, 0x29, 0xdb, 0x19, 0xd0, 0xc1, 0xde, 0x80,
+	0x8e, 0xc0, 0xb9, 0x9e, 0x93, 0x43, 0xc3, 0x9c, 0xeb, 0xb9, 0xd1, 0x09, 0xf1, 0x07, 0x9d, 0xf4,
+	0x31, 0x55, 0xf9, 0x9c, 0x80, 0xd9, 0x85, 0xbe, 0xb4, 0x24, 0x21, 0x93, 0x2d, 0x49, 0x2e, 0x97,
+	0xdf, 0x37, 0x01, 0xfa, 0xb1, 0x09, 0xd0, 0xcf, 0x4d, 0x80, 0xbe, 0xfc, 0x0a, 0x6e, 0xc1, 0x64,
+	0x67, 0x76, 0x97, 0xce, 0x82, 0xbd, 0xbb, 0x28, 0x2a, 0x5d, 0x76, 0xab, 0x98, 0x49, 0x31, 0xcb,
+	0x39, 0xab, 0x56, 0xbc, 0x66, 0x52, 0x2a, 0xde, 0xcc, 0xec, 0x96, 0x16, 0xf2, 0x7c, 0x7f, 0x5d,
+	0x7f, 0x07, 0x00, 0x00, 0xff, 0xff, 0xe7, 0xa4, 0x4e, 0xee, 0xbf, 0x02, 0x00, 0x00,
 }
