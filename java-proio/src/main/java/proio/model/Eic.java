@@ -115,7 +115,11 @@ public final class Eic {
      * momentum in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
+=======
+     * <code>optional .proio.model.eic.XYZF p = 5;</code>
+>>>>>>> model: eic: added updated generated code
      */
     boolean hasPDouble();
     /**
@@ -123,14 +127,21 @@ public final class Eic {
      * momentum in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
      */
     proio.model.Eic.XYZD getPDouble();
+=======
+     * <code>optional .proio.model.eic.XYZF p = 5;</code>
+     */
+    proio.model.Eic.XYZF getP();
+>>>>>>> model: eic: added updated generated code
     /**
      * <pre>
      * momentum in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
      */
     proio.model.Eic.XYZDOrBuilder getPDoubleOrBuilder();
@@ -145,6 +156,9 @@ public final class Eic {
     proio.model.Eic.XYZF getP();
     /**
      * <code>optional .proio.model.eic.XYZF p = 9;</code>
+=======
+     * <code>optional .proio.model.eic.XYZF p = 5;</code>
+>>>>>>> model: eic: added updated generated code
      */
     proio.model.Eic.XYZFOrBuilder getPOrBuilder();
 
@@ -153,7 +167,11 @@ public final class Eic {
      * mass in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional double mass_double = 6;</code>
+=======
+     * <code>optional float mass = 6;</code>
+>>>>>>> model: eic: added updated generated code
      */
     boolean hasMassDouble();
     /**
@@ -161,6 +179,7 @@ public final class Eic {
      * mass in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional double mass_double = 6;</code>
      */
     double getMassDouble();
@@ -171,6 +190,9 @@ public final class Eic {
     boolean hasMass();
     /**
      * <code>optional float mass = 10;</code>
+=======
+     * <code>optional float mass = 6;</code>
+>>>>>>> model: eic: added updated generated code
      */
     float getMass();
 
@@ -220,7 +242,10 @@ public final class Eic {
       parent_ = java.util.Collections.emptyList();
       child_ = java.util.Collections.emptyList();
       pdg_ = 0;
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
       massDouble_ = 0D;
+=======
+>>>>>>> model: eic: added updated generated code
       mass_ = 0F;
       charge_ = 0F;
     }
@@ -317,11 +342,15 @@ public final class Eic {
               break;
             }
             case 42: {
-              proio.model.Eic.XYZD.Builder subBuilder = null;
+              proio.model.Eic.XYZF.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = pDouble_.toBuilder();
               }
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
               pDouble_ = input.readMessage(proio.model.Eic.XYZD.PARSER, extensionRegistry);
+=======
+              p_ = input.readMessage(proio.model.Eic.XYZF.PARSER, extensionRegistry);
+>>>>>>> model: eic: added updated generated code
               if (subBuilder != null) {
                 subBuilder.mergeFrom(pDouble_);
                 pDouble_ = subBuilder.buildPartial();
@@ -329,9 +358,15 @@ public final class Eic {
               bitField0_ |= 0x00000004;
               break;
             }
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
             case 49: {
               bitField0_ |= 0x00000010;
               massDouble_ = input.readDouble();
+=======
+            case 53: {
+              bitField0_ |= 0x00000008;
+              mass_ = input.readFloat();
+>>>>>>> model: eic: added updated generated code
               break;
             }
             case 61: {
@@ -352,6 +387,7 @@ public final class Eic {
               bitField0_ |= 0x00000080;
               break;
             }
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
             case 74: {
               proio.model.Eic.XYZF.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
@@ -370,6 +406,8 @@ public final class Eic {
               mass_ = input.readFloat();
               break;
             }
+=======
+>>>>>>> model: eic: added updated generated code
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -525,14 +563,23 @@ public final class Eic {
       return vertex_ == null ? proio.model.Eic.XYZTD.getDefaultInstance() : vertex_;
     }
 
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
     public static final int P_DOUBLE_FIELD_NUMBER = 5;
     private proio.model.Eic.XYZD pDouble_;
+=======
+    public static final int P_FIELD_NUMBER = 5;
+    private proio.model.Eic.XYZF p_;
+>>>>>>> model: eic: added updated generated code
     /**
      * <pre>
      * momentum in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
+=======
+     * <code>optional .proio.model.eic.XYZF p = 5;</code>
+>>>>>>> model: eic: added updated generated code
      */
     public boolean hasPDouble() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -542,16 +589,24 @@ public final class Eic {
      * momentum in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
      */
     public proio.model.Eic.XYZD getPDouble() {
       return pDouble_ == null ? proio.model.Eic.XYZD.getDefaultInstance() : pDouble_;
+=======
+     * <code>optional .proio.model.eic.XYZF p = 5;</code>
+     */
+    public proio.model.Eic.XYZF getP() {
+      return p_ == null ? proio.model.Eic.XYZF.getDefaultInstance() : p_;
+>>>>>>> model: eic: added updated generated code
     }
     /**
      * <pre>
      * momentum in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
      */
     public proio.model.Eic.XYZDOrBuilder getPDoubleOrBuilder() {
@@ -581,12 +636,26 @@ public final class Eic {
 
     public static final int MASS_DOUBLE_FIELD_NUMBER = 6;
     private double massDouble_;
+=======
+     * <code>optional .proio.model.eic.XYZF p = 5;</code>
+     */
+    public proio.model.Eic.XYZFOrBuilder getPOrBuilder() {
+      return p_ == null ? proio.model.Eic.XYZF.getDefaultInstance() : p_;
+    }
+
+    public static final int MASS_FIELD_NUMBER = 6;
+    private float mass_;
+>>>>>>> model: eic: added updated generated code
     /**
      * <pre>
      * mass in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional double mass_double = 6;</code>
+=======
+     * <code>optional float mass = 6;</code>
+>>>>>>> model: eic: added updated generated code
      */
     public boolean hasMassDouble() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
@@ -596,6 +665,7 @@ public final class Eic {
      * mass in GeV
      * </pre>
      *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
      * <code>optional double mass_double = 6;</code>
      */
     public double getMassDouble() {
@@ -613,6 +683,10 @@ public final class Eic {
     /**
      * <code>optional float mass = 10;</code>
      */
+=======
+     * <code>optional float mass = 6;</code>
+     */
+>>>>>>> model: eic: added updated generated code
     public float getMass() {
       return mass_;
     }
@@ -686,7 +760,14 @@ public final class Eic {
         output.writeMessage(4, getVertex());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
         output.writeMessage(5, getPDouble());
+=======
+        output.writeMessage(5, getP());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeFloat(6, mass_);
+>>>>>>> model: eic: added updated generated code
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeDouble(6, massDouble_);
@@ -743,7 +824,11 @@ public final class Eic {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
           .computeDoubleSize(6, massDouble_);
+=======
+          .computeFloatSize(6, mass_);
+>>>>>>> model: eic: added updated generated code
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1037,6 +1122,11 @@ public final class Eic {
         } else {
           pBuilder_.clear();
         }
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
+=======
+        bitField0_ = (bitField0_ & ~0x00000010);
+        mass_ = 0F;
+>>>>>>> model: eic: added updated generated code
         bitField0_ = (bitField0_ & ~0x00000020);
         massDouble_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -1636,15 +1726,25 @@ public final class Eic {
         return vertexBuilder_;
       }
 
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
       private proio.model.Eic.XYZD pDouble_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           proio.model.Eic.XYZD, proio.model.Eic.XYZD.Builder, proio.model.Eic.XYZDOrBuilder> pDoubleBuilder_;
+=======
+      private proio.model.Eic.XYZF p_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proio.model.Eic.XYZF, proio.model.Eic.XYZF.Builder, proio.model.Eic.XYZFOrBuilder> pBuilder_;
+>>>>>>> model: eic: added updated generated code
       /**
        * <pre>
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+>>>>>>> model: eic: added updated generated code
        */
       public boolean hasPDouble() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
@@ -1654,11 +1754,19 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       public proio.model.Eic.XYZD getPDouble() {
         if (pDoubleBuilder_ == null) {
           return pDouble_ == null ? proio.model.Eic.XYZD.getDefaultInstance() : pDouble_;
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      public proio.model.Eic.XYZF getP() {
+        if (pBuilder_ == null) {
+          return p_ == null ? proio.model.Eic.XYZF.getDefaultInstance() : p_;
+>>>>>>> model: eic: added updated generated code
         } else {
           return pDoubleBuilder_.getMessage();
         }
@@ -1668,10 +1776,17 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       public Builder setPDouble(proio.model.Eic.XYZD value) {
         if (pDoubleBuilder_ == null) {
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      public Builder setP(proio.model.Eic.XYZF value) {
+        if (pBuilder_ == null) {
+>>>>>>> model: eic: added updated generated code
           if (value == null) {
             throw new NullPointerException();
           }
@@ -1688,12 +1803,21 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       public Builder setPDouble(
           proio.model.Eic.XYZD.Builder builderForValue) {
         if (pDoubleBuilder_ == null) {
           pDouble_ = builderForValue.build();
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      public Builder setP(
+          proio.model.Eic.XYZF.Builder builderForValue) {
+        if (pBuilder_ == null) {
+          p_ = builderForValue.build();
+>>>>>>> model: eic: added updated generated code
           onChanged();
         } else {
           pDoubleBuilder_.setMessage(builderForValue.build());
@@ -1706,6 +1830,7 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       public Builder mergePDouble(proio.model.Eic.XYZD value) {
@@ -1715,6 +1840,17 @@ public final class Eic {
               pDouble_ != proio.model.Eic.XYZD.getDefaultInstance()) {
             pDouble_ =
               proio.model.Eic.XYZD.newBuilder(pDouble_).mergeFrom(value).buildPartial();
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      public Builder mergeP(proio.model.Eic.XYZF value) {
+        if (pBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              p_ != null &&
+              p_ != proio.model.Eic.XYZF.getDefaultInstance()) {
+            p_ =
+              proio.model.Eic.XYZF.newBuilder(p_).mergeFrom(value).buildPartial();
+>>>>>>> model: eic: added updated generated code
           } else {
             pDouble_ = value;
           }
@@ -1730,7 +1866,11 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+>>>>>>> model: eic: added updated generated code
        */
       public Builder clearPDouble() {
         if (pDoubleBuilder_ == null) {
@@ -1747,9 +1887,15 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       public proio.model.Eic.XYZD.Builder getPDoubleBuilder() {
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      public proio.model.Eic.XYZF.Builder getPBuilder() {
+>>>>>>> model: eic: added updated generated code
         bitField0_ |= 0x00000010;
         onChanged();
         return getPDoubleFieldBuilder().getBuilder();
@@ -1759,6 +1905,7 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       public proio.model.Eic.XYZDOrBuilder getPDoubleOrBuilder() {
@@ -1767,6 +1914,16 @@ public final class Eic {
         } else {
           return pDouble_ == null ?
               proio.model.Eic.XYZD.getDefaultInstance() : pDouble_;
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      public proio.model.Eic.XYZFOrBuilder getPOrBuilder() {
+        if (pBuilder_ != null) {
+          return pBuilder_.getMessageOrBuilder();
+        } else {
+          return p_ == null ?
+              proio.model.Eic.XYZF.getDefaultInstance() : p_;
+>>>>>>> model: eic: added updated generated code
         }
       }
       /**
@@ -1774,6 +1931,7 @@ public final class Eic {
        * momentum in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional .proio.model.eic.XYZD p_double = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1895,6 +2053,11 @@ public final class Eic {
        * <code>optional .proio.model.eic.XYZF p = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
+=======
+       * <code>optional .proio.model.eic.XYZF p = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+>>>>>>> model: eic: added updated generated code
           proio.model.Eic.XYZF, proio.model.Eic.XYZF.Builder, proio.model.Eic.XYZFOrBuilder> 
           getPFieldBuilder() {
         if (pBuilder_ == null) {
@@ -1908,13 +2071,21 @@ public final class Eic {
         return pBuilder_;
       }
 
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
       private double massDouble_ ;
+=======
+      private float mass_ ;
+>>>>>>> model: eic: added updated generated code
       /**
        * <pre>
        * mass in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional double mass_double = 6;</code>
+=======
+       * <code>optional float mass = 6;</code>
+>>>>>>> model: eic: added updated generated code
        */
       public boolean hasMassDouble() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
@@ -1924,21 +2095,36 @@ public final class Eic {
        * mass in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional double mass_double = 6;</code>
        */
       public double getMassDouble() {
         return massDouble_;
+=======
+       * <code>optional float mass = 6;</code>
+       */
+      public float getMass() {
+        return mass_;
+>>>>>>> model: eic: added updated generated code
       }
       /**
        * <pre>
        * mass in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional double mass_double = 6;</code>
        */
       public Builder setMassDouble(double value) {
         bitField0_ |= 0x00000040;
         massDouble_ = value;
+=======
+       * <code>optional float mass = 6;</code>
+       */
+      public Builder setMass(float value) {
+        bitField0_ |= 0x00000020;
+        mass_ = value;
+>>>>>>> model: eic: added updated generated code
         onChanged();
         return this;
       }
@@ -1947,6 +2133,7 @@ public final class Eic {
        * mass in GeV
        * </pre>
        *
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
        * <code>optional double mass_double = 6;</code>
        */
       public Builder clearMassDouble() {
@@ -1983,6 +2170,12 @@ public final class Eic {
        */
       public Builder clearMass() {
         bitField0_ = (bitField0_ & ~0x00000080);
+=======
+       * <code>optional float mass = 6;</code>
+       */
+      public Builder clearMass() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+>>>>>>> model: eic: added updated generated code
         mass_ = 0F;
         onChanged();
         return this;
@@ -13145,6 +13338,7 @@ public final class Eic {
       "\n\025proio/model/eic.proto\022\017proio.model.eic" +
       "\"\201\002\n\010Particle\022\016\n\006parent\030\001 \003(\004\022\r\n\005child\030\002" +
       " \003(\004\022\013\n\003pdg\030\003 \001(\021\022&\n\006vertex\030\004 \001(\0132\026.proi" +
+<<<<<<< e1a859fd6c6e939bd44fd2166aa9ffea56e670ce
       "o.model.eic.XYZTD\022\'\n\010p_double\030\005 \001(\0132\025.pr" +
       "oio.model.eic.XYZD\022 \n\001p\030\t \001(\0132\025.proio.mo" +
       "del.eic.XYZF\022\023\n\013mass_double\030\006 \001(\001\022\014\n\004mas" +
@@ -13179,6 +13373,40 @@ public final class Eic {
       "\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002BE\n\013proio" +
       ".modelB\003EicZ1github.com/decibelcooper/pr" +
       "oio/go-proio/model/eic"
+=======
+      "o.model.eic.XYZTD\022 \n\001p\030\005 \001(\0132\025.proio.mod" +
+      "el.eic.XYZF\022\014\n\004mass\030\006 \001(\002\022\016\n\006charge\030\007 \001(" +
+      "\002\022#\n\004spin\030\010 \001(\0132\025.proio.model.eic.XYZF\"\227" +
+      "\001\n\006SimHit\022\020\n\010volumeid\030\001 \001(\004\022,\n\014globalpre" +
+      "pos\030\002 \001(\0132\026.proio.model.eic.XYZTD\022-\n\rglo" +
+      "balpostpos\030\003 \001(\0132\026.proio.model.eic.XYZTD" +
+      "\022\014\n\004edep\030\004 \001(\002\022\020\n\010particle\030\005 \001(\004\"c\n\tEner" +
+      "gyDep\022\014\n\004mean\030\001 \001(\002\022\r\n\005noise\030\002 \001(\002\022)\n\003po" +
+      "s\030\003 \003(\0132\034.proio.model.eic.ObservedPos\022\016\n" +
+      "\006source\030\004 \003(\004\"L\n\005Track\022.\n\007segment\030\001 \003(\0132" +
+      "\035.proio.model.eic.TrackSegment\022\023\n\013observ" +
+      "ation\030\002 \003(\004\"\265\002\n\014TrackSegment\022&\n\006vertex\030\001" +
+      " \001(\0132\026.proio.model.eic.XYZTD\022-\n\013vertexno" +
+      "ise\030\002 \003(\0132\030.proio.model.eic.RandVar\022\"\n\003p" +
+      "oq\030\003 \001(\0132\025.proio.model.eic.XYZD\022*\n\010poqno" +
+      "ise\030\004 \003(\0132\030.proio.model.eic.RandVar\022(\n\tc" +
+      "urvature\030\005 \001(\0132\025.proio.model.eic.XYZD\0220\n" +
+      "\016curvaturenoise\030\006 \003(\0132\030.proio.model.eic." +
+      "RandVar\022\022\n\nchargesign\030\007 \001(\002\022\016\n\006length\030\010 " +
+      "\001(\002\"o\n\013ObservedPos\022$\n\004mean\030\001 \001(\0132\026.proio" +
+      ".model.eic.XYZTD\022\'\n\005noise\030\002 \003(\0132\030.proio." +
+      "model.eic.RandVar\022\021\n\tweightmod\030\003 \001(\002\"\216\001\n" +
+      "\007RandVar\0223\n\004dist\030\002 \001(\0162%.proio.model.eic" +
+      ".RandVar.Distribution\022%\n\005sigma\030\003 \001(\0132\026.p" +
+      "roio.model.eic.XYZTF\"\'\n\014Distribution\022\n\n\006" +
+      "NORMAL\020\000\022\013\n\007UNIFORM\020\001\"3\n\005XYZTD\022\t\n\001x\030\001 \001(" +
+      "\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\t\n\001t\030\004 \001(\001\"3\n\005XY" +
+      "ZTF\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\t\n\001" +
+      "t\030\004 \001(\002\"\'\n\004XYZD\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n" +
+      "\001z\030\003 \001(\001\"\'\n\004XYZF\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t" +
+      "\n\001z\030\003 \001(\002BE\n\013proio.modelB\003EicZ1github.co" +
+      "m/decibelcooper/proio/go-proio/model/eic"
+>>>>>>> model: eic: added updated generated code
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
