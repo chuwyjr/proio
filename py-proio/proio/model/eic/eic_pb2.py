@@ -18,10 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='proio/model/eic.proto',
   package='proio.model.eic',
   syntax='proto2',
-<<<<<<< e3180d6805acb91e0d52f5a66a2b5c65085c0ec1
-=======
   serialized_options=_b('\n\013proio.modelB\003EicZ1github.com/decibelcooper/proio/go-proio/model/eic'),
->>>>>>> model: eic: fixed compatibility failure in recent model change
   serialized_pb=_b('\n\x15proio/model/eic.proto\x12\x0fproio.model.eic\"\x81\x02\n\x08Particle\x12\x0e\n\x06parent\x18\x01 \x03(\x04\x12\r\n\x05\x63hild\x18\x02 \x03(\x04\x12\x0b\n\x03pdg\x18\x03 \x01(\x11\x12&\n\x06vertex\x18\x04 \x01(\x0b\x32\x16.proio.model.eic.XYZTD\x12\'\n\x08p_double\x18\x05 \x01(\x0b\x32\x15.proio.model.eic.XYZD\x12 \n\x01p\x18\t \x01(\x0b\x32\x15.proio.model.eic.XYZF\x12\x13\n\x0bmass_double\x18\x06 \x01(\x01\x12\x0c\n\x04mass\x18\n \x01(\x02\x12\x0e\n\x06\x63harge\x18\x07 \x01(\x02\x12#\n\x04spin\x18\x08 \x01(\x0b\x32\x15.proio.model.eic.XYZF\"\x97\x01\n\x06SimHit\x12\x10\n\x08volumeid\x18\x01 \x01(\x04\x12,\n\x0cglobalprepos\x18\x02 \x01(\x0b\x32\x16.proio.model.eic.XYZTD\x12-\n\rglobalpostpos\x18\x03 \x01(\x0b\x32\x16.proio.model.eic.XYZTD\x12\x0c\n\x04\x65\x64\x65p\x18\x04 \x01(\x02\x12\x10\n\x08particle\x18\x05 \x01(\x04\"c\n\tEnergyDep\x12\x0c\n\x04mean\x18\x01 \x01(\x02\x12\r\n\x05noise\x18\x02 \x01(\x02\x12)\n\x03pos\x18\x03 \x03(\x0b\x32\x1c.proio.model.eic.ObservedPos\x12\x0e\n\x06source\x18\x04 \x03(\x04\"L\n\x05Track\x12.\n\x07segment\x18\x01 \x03(\x0b\x32\x1d.proio.model.eic.TrackSegment\x12\x13\n\x0bobservation\x18\x02 \x03(\x04\"\xb5\x02\n\x0cTrackSegment\x12&\n\x06vertex\x18\x01 \x01(\x0b\x32\x16.proio.model.eic.XYZTD\x12-\n\x0bvertexnoise\x18\x02 \x03(\x0b\x32\x18.proio.model.eic.RandVar\x12\"\n\x03poq\x18\x03 \x01(\x0b\x32\x15.proio.model.eic.XYZD\x12*\n\x08poqnoise\x18\x04 \x03(\x0b\x32\x18.proio.model.eic.RandVar\x12(\n\tcurvature\x18\x05 \x01(\x0b\x32\x15.proio.model.eic.XYZD\x12\x30\n\x0e\x63urvaturenoise\x18\x06 \x03(\x0b\x32\x18.proio.model.eic.RandVar\x12\x12\n\nchargesign\x18\x07 \x01(\x02\x12\x0e\n\x06length\x18\x08 \x01(\x02\"o\n\x0bObservedPos\x12$\n\x04mean\x18\x01 \x01(\x0b\x32\x16.proio.model.eic.XYZTD\x12\'\n\x05noise\x18\x02 \x03(\x0b\x32\x18.proio.model.eic.RandVar\x12\x11\n\tweightmod\x18\x03 \x01(\x02\"\x8e\x01\n\x07RandVar\x12\x33\n\x04\x64ist\x18\x02 \x01(\x0e\x32%.proio.model.eic.RandVar.Distribution\x12%\n\x05sigma\x18\x03 \x01(\x0b\x32\x16.proio.model.eic.XYZTF\"\'\n\x0c\x44istribution\x12\n\n\x06NORMAL\x10\x00\x12\x0b\n\x07UNIFORM\x10\x01\"3\n\x05XYZTD\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\x12\t\n\x01z\x18\x03 \x01(\x01\x12\t\n\x01t\x18\x04 \x01(\x01\"3\n\x05XYZTF\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\x12\t\n\x01t\x18\x04 \x01(\x02\"\'\n\x04XYZD\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\x12\t\n\x01z\x18\x03 \x01(\x01\"\'\n\x04XYZF\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\x42\x45\n\x0bproio.modelB\x03\x45icZ1github.com/decibelcooper/proio/go-proio/model/eic')
 )
 
@@ -43,11 +40,7 @@ _RANDVAR_DISTRIBUTION = _descriptor.EnumDescriptor(
       type=None),
   ],
   containing_type=None,
-<<<<<<< e3180d6805acb91e0d52f5a66a2b5c65085c0ec1
-  options=None,
-=======
   serialized_options=None,
->>>>>>> model: eic: fixed compatibility failure in recent model change
   serialized_start=1164,
   serialized_end=1203,
 )
@@ -102,22 +95,14 @@ _PARTICLE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-<<<<<<< e3180d6805acb91e0d52f5a66a2b5c65085c0ec1
-      options=None, file=DESCRIPTOR),
-=======
       serialized_options=None, file=DESCRIPTOR),
->>>>>>> model: eic: fixed compatibility failure in recent model change
     _descriptor.FieldDescriptor(
       name='mass_double', full_name='proio.model.eic.Particle.mass_double', index=6,
       number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-<<<<<<< e3180d6805acb91e0d52f5a66a2b5c65085c0ec1
-      options=None, file=DESCRIPTOR),
-=======
       serialized_options=None, file=DESCRIPTOR),
->>>>>>> model: eic: fixed compatibility failure in recent model change
     _descriptor.FieldDescriptor(
       name='mass', full_name='proio.model.eic.Particle.mass', index=7,
       number=10, type=2, cpp_type=6, label=1,
