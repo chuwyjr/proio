@@ -46,30 +46,92 @@ public final class Mc {
     double getWeight();
 
     /**
-     * <code>repeated int32 iarray = 4;</code>
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
      */
-    java.util.List<java.lang.Integer> getIarrayList();
+    java.util.List<proio.model.Mc.MapInt> 
+        getImapList();
     /**
-     * <code>repeated int32 iarray = 4;</code>
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
      */
-    int getIarrayCount();
+    proio.model.Mc.MapInt getImap(int index);
     /**
-     * <code>repeated int32 iarray = 4;</code>
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
      */
-    int getIarray(int index);
+    int getImapCount();
+    /**
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+     */
+    java.util.List<? extends proio.model.Mc.MapIntOrBuilder> 
+        getImapOrBuilderList();
+    /**
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+     */
+    proio.model.Mc.MapIntOrBuilder getImapOrBuilder(
+        int index);
 
     /**
-     * <code>repeated double darray = 5;</code>
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
      */
-    java.util.List<java.lang.Double> getDarrayList();
+    java.util.List<proio.model.Mc.MapDouble> 
+        getDmapList();
     /**
-     * <code>repeated double darray = 5;</code>
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
      */
-    int getDarrayCount();
+    proio.model.Mc.MapDouble getDmap(int index);
     /**
-     * <code>repeated double darray = 5;</code>
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
      */
-    double getDarray(int index);
+    int getDmapCount();
+    /**
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+     */
+    java.util.List<? extends proio.model.Mc.MapDoubleOrBuilder> 
+        getDmapOrBuilderList();
+    /**
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+     */
+    proio.model.Mc.MapDoubleOrBuilder getDmapOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -91,8 +153,8 @@ public final class Mc {
       number_ = 0L;
       processid_ = 0;
       weight_ = 0D;
-      iarray_ = java.util.Collections.emptyList();
-      darray_ = java.util.Collections.emptyList();
+      imap_ = java.util.Collections.emptyList();
+      dmap_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -134,46 +196,22 @@ public final class Mc {
               weight_ = input.readDouble();
               break;
             }
-            case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                iarray_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              iarray_.add(input.readInt32());
-              break;
-            }
             case 34: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                iarray_ = new java.util.ArrayList<java.lang.Integer>();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                imap_ = new java.util.ArrayList<proio.model.Mc.MapInt>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                iarray_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 41: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                darray_ = new java.util.ArrayList<java.lang.Double>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              darray_.add(input.readDouble());
+              imap_.add(
+                  input.readMessage(proio.model.Mc.MapInt.PARSER, extensionRegistry));
               break;
             }
             case 42: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
-                darray_ = new java.util.ArrayList<java.lang.Double>();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                dmap_ = new java.util.ArrayList<proio.model.Mc.MapDouble>();
                 mutable_bitField0_ |= 0x00000010;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                darray_.add(input.readDouble());
-              }
-              input.popLimit(limit);
+              dmap_.add(
+                  input.readMessage(proio.model.Mc.MapDouble.PARSER, extensionRegistry));
               break;
             }
             default: {
@@ -192,10 +230,10 @@ public final class Mc {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          iarray_ = java.util.Collections.unmodifiableList(iarray_);
+          imap_ = java.util.Collections.unmodifiableList(imap_);
         }
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          darray_ = java.util.Collections.unmodifiableList(darray_);
+          dmap_ = java.util.Collections.unmodifiableList(dmap_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -260,48 +298,114 @@ public final class Mc {
       return weight_;
     }
 
-    public static final int IARRAY_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> iarray_;
+    public static final int IMAP_FIELD_NUMBER = 4;
+    private java.util.List<proio.model.Mc.MapInt> imap_;
     /**
-     * <code>repeated int32 iarray = 4;</code>
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
      */
-    public java.util.List<java.lang.Integer>
-        getIarrayList() {
-      return iarray_;
+    public java.util.List<proio.model.Mc.MapInt> getImapList() {
+      return imap_;
     }
     /**
-     * <code>repeated int32 iarray = 4;</code>
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
      */
-    public int getIarrayCount() {
-      return iarray_.size();
+    public java.util.List<? extends proio.model.Mc.MapIntOrBuilder> 
+        getImapOrBuilderList() {
+      return imap_;
     }
     /**
-     * <code>repeated int32 iarray = 4;</code>
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
      */
-    public int getIarray(int index) {
-      return iarray_.get(index);
+    public int getImapCount() {
+      return imap_.size();
+    }
+    /**
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+     */
+    public proio.model.Mc.MapInt getImap(int index) {
+      return imap_.get(index);
+    }
+    /**
+     * <pre>
+     * keep metadata as key-value (int)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+     */
+    public proio.model.Mc.MapIntOrBuilder getImapOrBuilder(
+        int index) {
+      return imap_.get(index);
     }
 
-    public static final int DARRAY_FIELD_NUMBER = 5;
-    private java.util.List<java.lang.Double> darray_;
+    public static final int DMAP_FIELD_NUMBER = 5;
+    private java.util.List<proio.model.Mc.MapDouble> dmap_;
     /**
-     * <code>repeated double darray = 5;</code>
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
      */
-    public java.util.List<java.lang.Double>
-        getDarrayList() {
-      return darray_;
+    public java.util.List<proio.model.Mc.MapDouble> getDmapList() {
+      return dmap_;
     }
     /**
-     * <code>repeated double darray = 5;</code>
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
      */
-    public int getDarrayCount() {
-      return darray_.size();
+    public java.util.List<? extends proio.model.Mc.MapDoubleOrBuilder> 
+        getDmapOrBuilderList() {
+      return dmap_;
     }
     /**
-     * <code>repeated double darray = 5;</code>
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
      */
-    public double getDarray(int index) {
-      return darray_.get(index);
+    public int getDmapCount() {
+      return dmap_.size();
+    }
+    /**
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+     */
+    public proio.model.Mc.MapDouble getDmap(int index) {
+      return dmap_.get(index);
+    }
+    /**
+     * <pre>
+     * keep metadata as key-value (double)
+     * </pre>
+     *
+     * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+     */
+    public proio.model.Mc.MapDoubleOrBuilder getDmapOrBuilder(
+        int index) {
+      return dmap_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -311,6 +415,18 @@ public final class Mc {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getImapCount(); i++) {
+        if (!getImap(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getDmapCount(); i++) {
+        if (!getDmap(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -327,11 +443,11 @@ public final class Mc {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeDouble(3, weight_);
       }
-      for (int i = 0; i < iarray_.size(); i++) {
-        output.writeInt32(4, iarray_.get(i));
+      for (int i = 0; i < imap_.size(); i++) {
+        output.writeMessage(4, imap_.get(i));
       }
-      for (int i = 0; i < darray_.size(); i++) {
-        output.writeDouble(5, darray_.get(i));
+      for (int i = 0; i < dmap_.size(); i++) {
+        output.writeMessage(5, dmap_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -354,20 +470,13 @@ public final class Mc {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, weight_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < iarray_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(iarray_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getIarrayList().size();
+      for (int i = 0; i < imap_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, imap_.get(i));
       }
-      {
-        int dataSize = 0;
-        dataSize = 8 * getDarrayList().size();
-        size += dataSize;
-        size += 1 * getDarrayList().size();
+      for (int i = 0; i < dmap_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, dmap_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -402,10 +511,10 @@ public final class Mc {
             == java.lang.Double.doubleToLongBits(
                 other.getWeight()));
       }
-      result = result && getIarrayList()
-          .equals(other.getIarrayList());
-      result = result && getDarrayList()
-          .equals(other.getDarrayList());
+      result = result && getImapList()
+          .equals(other.getImapList());
+      result = result && getDmapList()
+          .equals(other.getDmapList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -431,13 +540,13 @@ public final class Mc {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getWeight()));
       }
-      if (getIarrayCount() > 0) {
-        hash = (37 * hash) + IARRAY_FIELD_NUMBER;
-        hash = (53 * hash) + getIarrayList().hashCode();
+      if (getImapCount() > 0) {
+        hash = (37 * hash) + IMAP_FIELD_NUMBER;
+        hash = (53 * hash) + getImapList().hashCode();
       }
-      if (getDarrayCount() > 0) {
-        hash = (37 * hash) + DARRAY_FIELD_NUMBER;
-        hash = (53 * hash) + getDarrayList().hashCode();
+      if (getDmapCount() > 0) {
+        hash = (37 * hash) + DMAP_FIELD_NUMBER;
+        hash = (53 * hash) + getDmapList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -571,6 +680,8 @@ public final class Mc {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getImapFieldBuilder();
+          getDmapFieldBuilder();
         }
       }
       @java.lang.Override
@@ -582,10 +693,18 @@ public final class Mc {
         bitField0_ = (bitField0_ & ~0x00000002);
         weight_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
-        iarray_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        darray_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        if (imapBuilder_ == null) {
+          imap_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          imapBuilder_.clear();
+        }
+        if (dmapBuilder_ == null) {
+          dmap_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          dmapBuilder_.clear();
+        }
         return this;
       }
 
@@ -626,16 +745,24 @@ public final class Mc {
           to_bitField0_ |= 0x00000004;
         }
         result.weight_ = weight_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          iarray_ = java.util.Collections.unmodifiableList(iarray_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+        if (imapBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            imap_ = java.util.Collections.unmodifiableList(imap_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.imap_ = imap_;
+        } else {
+          result.imap_ = imapBuilder_.build();
         }
-        result.iarray_ = iarray_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          darray_ = java.util.Collections.unmodifiableList(darray_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+        if (dmapBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            dmap_ = java.util.Collections.unmodifiableList(dmap_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.dmap_ = dmap_;
+        } else {
+          result.dmap_ = dmapBuilder_.build();
         }
-        result.darray_ = darray_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -694,25 +821,57 @@ public final class Mc {
         if (other.hasWeight()) {
           setWeight(other.getWeight());
         }
-        if (!other.iarray_.isEmpty()) {
-          if (iarray_.isEmpty()) {
-            iarray_ = other.iarray_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureIarrayIsMutable();
-            iarray_.addAll(other.iarray_);
+        if (imapBuilder_ == null) {
+          if (!other.imap_.isEmpty()) {
+            if (imap_.isEmpty()) {
+              imap_ = other.imap_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureImapIsMutable();
+              imap_.addAll(other.imap_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.imap_.isEmpty()) {
+            if (imapBuilder_.isEmpty()) {
+              imapBuilder_.dispose();
+              imapBuilder_ = null;
+              imap_ = other.imap_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              imapBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getImapFieldBuilder() : null;
+            } else {
+              imapBuilder_.addAllMessages(other.imap_);
+            }
+          }
         }
-        if (!other.darray_.isEmpty()) {
-          if (darray_.isEmpty()) {
-            darray_ = other.darray_;
-            bitField0_ = (bitField0_ & ~0x00000010);
-          } else {
-            ensureDarrayIsMutable();
-            darray_.addAll(other.darray_);
+        if (dmapBuilder_ == null) {
+          if (!other.dmap_.isEmpty()) {
+            if (dmap_.isEmpty()) {
+              dmap_ = other.dmap_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureDmapIsMutable();
+              dmap_.addAll(other.dmap_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.dmap_.isEmpty()) {
+            if (dmapBuilder_.isEmpty()) {
+              dmapBuilder_.dispose();
+              dmapBuilder_ = null;
+              dmap_ = other.dmap_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              dmapBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDmapFieldBuilder() : null;
+            } else {
+              dmapBuilder_.addAllMessages(other.dmap_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -721,6 +880,16 @@ public final class Mc {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        for (int i = 0; i < getImapCount(); i++) {
+          if (!getImap(i).isInitialized()) {
+            return false;
+          }
+        }
+        for (int i = 0; i < getDmapCount(); i++) {
+          if (!getDmap(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -840,136 +1009,628 @@ public final class Mc {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> iarray_ = java.util.Collections.emptyList();
-      private void ensureIarrayIsMutable() {
+      private java.util.List<proio.model.Mc.MapInt> imap_ =
+        java.util.Collections.emptyList();
+      private void ensureImapIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          iarray_ = new java.util.ArrayList<java.lang.Integer>(iarray_);
+          imap_ = new java.util.ArrayList<proio.model.Mc.MapInt>(imap_);
           bitField0_ |= 0x00000008;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          proio.model.Mc.MapInt, proio.model.Mc.MapInt.Builder, proio.model.Mc.MapIntOrBuilder> imapBuilder_;
+
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getIarrayList() {
-        return java.util.Collections.unmodifiableList(iarray_);
+      public java.util.List<proio.model.Mc.MapInt> getImapList() {
+        if (imapBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(imap_);
+        } else {
+          return imapBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public int getIarrayCount() {
-        return iarray_.size();
+      public int getImapCount() {
+        if (imapBuilder_ == null) {
+          return imap_.size();
+        } else {
+          return imapBuilder_.getCount();
+        }
       }
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public int getIarray(int index) {
-        return iarray_.get(index);
+      public proio.model.Mc.MapInt getImap(int index) {
+        if (imapBuilder_ == null) {
+          return imap_.get(index);
+        } else {
+          return imapBuilder_.getMessage(index);
+        }
       }
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public Builder setIarray(
-          int index, int value) {
-        ensureIarrayIsMutable();
-        iarray_.set(index, value);
-        onChanged();
+      public Builder setImap(
+          int index, proio.model.Mc.MapInt value) {
+        if (imapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureImapIsMutable();
+          imap_.set(index, value);
+          onChanged();
+        } else {
+          imapBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public Builder addIarray(int value) {
-        ensureIarrayIsMutable();
-        iarray_.add(value);
-        onChanged();
+      public Builder setImap(
+          int index, proio.model.Mc.MapInt.Builder builderForValue) {
+        if (imapBuilder_ == null) {
+          ensureImapIsMutable();
+          imap_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          imapBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public Builder addAllIarray(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureIarrayIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, iarray_);
-        onChanged();
+      public Builder addImap(proio.model.Mc.MapInt value) {
+        if (imapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureImapIsMutable();
+          imap_.add(value);
+          onChanged();
+        } else {
+          imapBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>repeated int32 iarray = 4;</code>
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
        */
-      public Builder clearIarray() {
-        iarray_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
+      public Builder addImap(
+          int index, proio.model.Mc.MapInt value) {
+        if (imapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureImapIsMutable();
+          imap_.add(index, value);
+          onChanged();
+        } else {
+          imapBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public Builder addImap(
+          proio.model.Mc.MapInt.Builder builderForValue) {
+        if (imapBuilder_ == null) {
+          ensureImapIsMutable();
+          imap_.add(builderForValue.build());
+          onChanged();
+        } else {
+          imapBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public Builder addImap(
+          int index, proio.model.Mc.MapInt.Builder builderForValue) {
+        if (imapBuilder_ == null) {
+          ensureImapIsMutable();
+          imap_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          imapBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public Builder addAllImap(
+          java.lang.Iterable<? extends proio.model.Mc.MapInt> values) {
+        if (imapBuilder_ == null) {
+          ensureImapIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, imap_);
+          onChanged();
+        } else {
+          imapBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public Builder clearImap() {
+        if (imapBuilder_ == null) {
+          imap_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          imapBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public Builder removeImap(int index) {
+        if (imapBuilder_ == null) {
+          ensureImapIsMutable();
+          imap_.remove(index);
+          onChanged();
+        } else {
+          imapBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public proio.model.Mc.MapInt.Builder getImapBuilder(
+          int index) {
+        return getImapFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public proio.model.Mc.MapIntOrBuilder getImapOrBuilder(
+          int index) {
+        if (imapBuilder_ == null) {
+          return imap_.get(index);  } else {
+          return imapBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public java.util.List<? extends proio.model.Mc.MapIntOrBuilder> 
+           getImapOrBuilderList() {
+        if (imapBuilder_ != null) {
+          return imapBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(imap_);
+        }
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public proio.model.Mc.MapInt.Builder addImapBuilder() {
+        return getImapFieldBuilder().addBuilder(
+            proio.model.Mc.MapInt.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public proio.model.Mc.MapInt.Builder addImapBuilder(
+          int index) {
+        return getImapFieldBuilder().addBuilder(
+            index, proio.model.Mc.MapInt.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (int)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapInt imap = 4;</code>
+       */
+      public java.util.List<proio.model.Mc.MapInt.Builder> 
+           getImapBuilderList() {
+        return getImapFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          proio.model.Mc.MapInt, proio.model.Mc.MapInt.Builder, proio.model.Mc.MapIntOrBuilder> 
+          getImapFieldBuilder() {
+        if (imapBuilder_ == null) {
+          imapBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              proio.model.Mc.MapInt, proio.model.Mc.MapInt.Builder, proio.model.Mc.MapIntOrBuilder>(
+                  imap_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          imap_ = null;
+        }
+        return imapBuilder_;
       }
 
-      private java.util.List<java.lang.Double> darray_ = java.util.Collections.emptyList();
-      private void ensureDarrayIsMutable() {
+      private java.util.List<proio.model.Mc.MapDouble> dmap_ =
+        java.util.Collections.emptyList();
+      private void ensureDmapIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          darray_ = new java.util.ArrayList<java.lang.Double>(darray_);
+          dmap_ = new java.util.ArrayList<proio.model.Mc.MapDouble>(dmap_);
           bitField0_ |= 0x00000010;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          proio.model.Mc.MapDouble, proio.model.Mc.MapDouble.Builder, proio.model.Mc.MapDoubleOrBuilder> dmapBuilder_;
+
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public java.util.List<java.lang.Double>
-          getDarrayList() {
-        return java.util.Collections.unmodifiableList(darray_);
+      public java.util.List<proio.model.Mc.MapDouble> getDmapList() {
+        if (dmapBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(dmap_);
+        } else {
+          return dmapBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public int getDarrayCount() {
-        return darray_.size();
+      public int getDmapCount() {
+        if (dmapBuilder_ == null) {
+          return dmap_.size();
+        } else {
+          return dmapBuilder_.getCount();
+        }
       }
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public double getDarray(int index) {
-        return darray_.get(index);
+      public proio.model.Mc.MapDouble getDmap(int index) {
+        if (dmapBuilder_ == null) {
+          return dmap_.get(index);
+        } else {
+          return dmapBuilder_.getMessage(index);
+        }
       }
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public Builder setDarray(
-          int index, double value) {
-        ensureDarrayIsMutable();
-        darray_.set(index, value);
-        onChanged();
+      public Builder setDmap(
+          int index, proio.model.Mc.MapDouble value) {
+        if (dmapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDmapIsMutable();
+          dmap_.set(index, value);
+          onChanged();
+        } else {
+          dmapBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public Builder addDarray(double value) {
-        ensureDarrayIsMutable();
-        darray_.add(value);
-        onChanged();
+      public Builder setDmap(
+          int index, proio.model.Mc.MapDouble.Builder builderForValue) {
+        if (dmapBuilder_ == null) {
+          ensureDmapIsMutable();
+          dmap_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dmapBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public Builder addAllDarray(
-          java.lang.Iterable<? extends java.lang.Double> values) {
-        ensureDarrayIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, darray_);
-        onChanged();
+      public Builder addDmap(proio.model.Mc.MapDouble value) {
+        if (dmapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDmapIsMutable();
+          dmap_.add(value);
+          onChanged();
+        } else {
+          dmapBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>repeated double darray = 5;</code>
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
        */
-      public Builder clearDarray() {
-        darray_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
-        onChanged();
+      public Builder addDmap(
+          int index, proio.model.Mc.MapDouble value) {
+        if (dmapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDmapIsMutable();
+          dmap_.add(index, value);
+          onChanged();
+        } else {
+          dmapBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public Builder addDmap(
+          proio.model.Mc.MapDouble.Builder builderForValue) {
+        if (dmapBuilder_ == null) {
+          ensureDmapIsMutable();
+          dmap_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dmapBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public Builder addDmap(
+          int index, proio.model.Mc.MapDouble.Builder builderForValue) {
+        if (dmapBuilder_ == null) {
+          ensureDmapIsMutable();
+          dmap_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dmapBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public Builder addAllDmap(
+          java.lang.Iterable<? extends proio.model.Mc.MapDouble> values) {
+        if (dmapBuilder_ == null) {
+          ensureDmapIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, dmap_);
+          onChanged();
+        } else {
+          dmapBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public Builder clearDmap() {
+        if (dmapBuilder_ == null) {
+          dmap_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          dmapBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public Builder removeDmap(int index) {
+        if (dmapBuilder_ == null) {
+          ensureDmapIsMutable();
+          dmap_.remove(index);
+          onChanged();
+        } else {
+          dmapBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public proio.model.Mc.MapDouble.Builder getDmapBuilder(
+          int index) {
+        return getDmapFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public proio.model.Mc.MapDoubleOrBuilder getDmapOrBuilder(
+          int index) {
+        if (dmapBuilder_ == null) {
+          return dmap_.get(index);  } else {
+          return dmapBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public java.util.List<? extends proio.model.Mc.MapDoubleOrBuilder> 
+           getDmapOrBuilderList() {
+        if (dmapBuilder_ != null) {
+          return dmapBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(dmap_);
+        }
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public proio.model.Mc.MapDouble.Builder addDmapBuilder() {
+        return getDmapFieldBuilder().addBuilder(
+            proio.model.Mc.MapDouble.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public proio.model.Mc.MapDouble.Builder addDmapBuilder(
+          int index) {
+        return getDmapFieldBuilder().addBuilder(
+            index, proio.model.Mc.MapDouble.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * keep metadata as key-value (double)
+       * </pre>
+       *
+       * <code>repeated .proio.model.mc.MapDouble dmap = 5;</code>
+       */
+      public java.util.List<proio.model.Mc.MapDouble.Builder> 
+           getDmapBuilderList() {
+        return getDmapFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          proio.model.Mc.MapDouble, proio.model.Mc.MapDouble.Builder, proio.model.Mc.MapDoubleOrBuilder> 
+          getDmapFieldBuilder() {
+        if (dmapBuilder_ == null) {
+          dmapBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              proio.model.Mc.MapDouble, proio.model.Mc.MapDouble.Builder, proio.model.Mc.MapDoubleOrBuilder>(
+                  dmap_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          dmap_ = null;
+        }
+        return dmapBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1024,6 +1685,1721 @@ public final class Mc {
 
   }
 
+  public interface MapIntOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proio.model.mc.MapInt)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * key for integer value 
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    boolean hasKey();
+    /**
+     * <pre>
+     * key for integer value 
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    java.lang.String getKey();
+    /**
+     * <pre>
+     * key for integer value 
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
+
+    /**
+     * <pre>
+     * value 
+     * </pre>
+     *
+     * <code>repeated sint32 value = 2;</code>
+     */
+    java.util.List<java.lang.Integer> getValueList();
+    /**
+     * <pre>
+     * value 
+     * </pre>
+     *
+     * <code>repeated sint32 value = 2;</code>
+     */
+    int getValueCount();
+    /**
+     * <pre>
+     * value 
+     * </pre>
+     *
+     * <code>repeated sint32 value = 2;</code>
+     */
+    int getValue(int index);
+  }
+  /**
+   * <pre>
+   * map to store arbitrary data as key-int value 
+   * </pre>
+   *
+   * Protobuf type {@code proio.model.mc.MapInt}
+   */
+  public  static final class MapInt extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proio.model.mc.MapInt)
+      MapIntOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MapInt.newBuilder() to construct.
+    private MapInt(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MapInt() {
+      key_ = "";
+      value_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MapInt(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              key_ = bs;
+              break;
+            }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                value_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              value_.add(input.readSInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                value_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                value_.add(input.readSInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proio.model.Mc.internal_static_proio_model_mc_MapInt_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proio.model.Mc.internal_static_proio_model_mc_MapInt_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proio.model.Mc.MapInt.class, proio.model.Mc.MapInt.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object key_;
+    /**
+     * <pre>
+     * key for integer value 
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    public boolean hasKey() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * key for integer value 
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          key_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * key for integer value 
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Integer> value_;
+    /**
+     * <pre>
+     * value 
+     * </pre>
+     *
+     * <code>repeated sint32 value = 2;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getValueList() {
+      return value_;
+    }
+    /**
+     * <pre>
+     * value 
+     * </pre>
+     *
+     * <code>repeated sint32 value = 2;</code>
+     */
+    public int getValueCount() {
+      return value_.size();
+    }
+    /**
+     * <pre>
+     * value 
+     * </pre>
+     *
+     * <code>repeated sint32 value = 2;</code>
+     */
+    public int getValue(int index) {
+      return value_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasKey()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+      }
+      for (int i = 0; i < value_.size(); i++) {
+        output.writeSInt32(2, value_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < value_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeSInt32SizeNoTag(value_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getValueList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proio.model.Mc.MapInt)) {
+        return super.equals(obj);
+      }
+      proio.model.Mc.MapInt other = (proio.model.Mc.MapInt) obj;
+
+      boolean result = true;
+      result = result && (hasKey() == other.hasKey());
+      if (hasKey()) {
+        result = result && getKey()
+            .equals(other.getKey());
+      }
+      result = result && getValueList()
+          .equals(other.getValueList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
+      }
+      if (getValueCount() > 0) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValueList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proio.model.Mc.MapInt parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MapInt parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MapInt parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proio.model.Mc.MapInt parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MapInt parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MapInt parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proio.model.Mc.MapInt prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * map to store arbitrary data as key-int value 
+     * </pre>
+     *
+     * Protobuf type {@code proio.model.mc.MapInt}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proio.model.mc.MapInt)
+        proio.model.Mc.MapIntOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proio.model.Mc.internal_static_proio_model_mc_MapInt_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proio.model.Mc.internal_static_proio_model_mc_MapInt_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proio.model.Mc.MapInt.class, proio.model.Mc.MapInt.Builder.class);
+      }
+
+      // Construct using proio.model.Mc.MapInt.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        key_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proio.model.Mc.internal_static_proio_model_mc_MapInt_descriptor;
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MapInt getDefaultInstanceForType() {
+        return proio.model.Mc.MapInt.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MapInt build() {
+        proio.model.Mc.MapInt result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MapInt buildPartial() {
+        proio.model.Mc.MapInt result = new proio.model.Mc.MapInt(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.key_ = key_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proio.model.Mc.MapInt) {
+          return mergeFrom((proio.model.Mc.MapInt)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proio.model.Mc.MapInt other) {
+        if (other == proio.model.Mc.MapInt.getDefaultInstance()) return this;
+        if (other.hasKey()) {
+          bitField0_ |= 0x00000001;
+          key_ = other.key_;
+          onChanged();
+        }
+        if (!other.value_.isEmpty()) {
+          if (value_.isEmpty()) {
+            value_ = other.value_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureValueIsMutable();
+            value_.addAll(other.value_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasKey()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proio.model.Mc.MapInt parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proio.model.Mc.MapInt) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object key_ = "";
+      /**
+       * <pre>
+       * key for integer value 
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public boolean hasKey() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * key for integer value 
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            key_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * key for integer value 
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * key for integer value 
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * key for integer value 
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public Builder clearKey() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * key for integer value 
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        key_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> value_ = java.util.Collections.emptyList();
+      private void ensureValueIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = new java.util.ArrayList<java.lang.Integer>(value_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getValueList() {
+        return java.util.Collections.unmodifiableList(value_);
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public int getValueCount() {
+        return value_.size();
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public int getValue(int index) {
+        return value_.get(index);
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public Builder setValue(
+          int index, int value) {
+        ensureValueIsMutable();
+        value_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public Builder addValue(int value) {
+        ensureValueIsMutable();
+        value_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public Builder addAllValue(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureValueIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, value_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * value 
+       * </pre>
+       *
+       * <code>repeated sint32 value = 2;</code>
+       */
+      public Builder clearValue() {
+        value_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proio.model.mc.MapInt)
+    }
+
+    // @@protoc_insertion_point(class_scope:proio.model.mc.MapInt)
+    private static final proio.model.Mc.MapInt DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proio.model.Mc.MapInt();
+    }
+
+    public static proio.model.Mc.MapInt getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MapInt>
+        PARSER = new com.google.protobuf.AbstractParser<MapInt>() {
+      @java.lang.Override
+      public MapInt parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MapInt(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MapInt> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MapInt> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proio.model.Mc.MapInt getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MapDoubleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proio.model.mc.MapDouble)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * key for double value
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    boolean hasKey();
+    /**
+     * <pre>
+     * key for double value
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    java.lang.String getKey();
+    /**
+     * <pre>
+     * key for double value
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
+
+    /**
+     * <pre>
+     * value
+     * </pre>
+     *
+     * <code>repeated double value = 2;</code>
+     */
+    java.util.List<java.lang.Double> getValueList();
+    /**
+     * <pre>
+     * value
+     * </pre>
+     *
+     * <code>repeated double value = 2;</code>
+     */
+    int getValueCount();
+    /**
+     * <pre>
+     * value
+     * </pre>
+     *
+     * <code>repeated double value = 2;</code>
+     */
+    double getValue(int index);
+  }
+  /**
+   * <pre>
+   * map to store arbitrary data as key-double value 
+   * </pre>
+   *
+   * Protobuf type {@code proio.model.mc.MapDouble}
+   */
+  public  static final class MapDouble extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proio.model.mc.MapDouble)
+      MapDoubleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MapDouble.newBuilder() to construct.
+    private MapDouble(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MapDouble() {
+      key_ = "";
+      value_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MapDouble(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              key_ = bs;
+              break;
+            }
+            case 17: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                value_ = new java.util.ArrayList<java.lang.Double>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              value_.add(input.readDouble());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                value_ = new java.util.ArrayList<java.lang.Double>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                value_.add(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proio.model.Mc.internal_static_proio_model_mc_MapDouble_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proio.model.Mc.internal_static_proio_model_mc_MapDouble_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proio.model.Mc.MapDouble.class, proio.model.Mc.MapDouble.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object key_;
+    /**
+     * <pre>
+     * key for double value
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    public boolean hasKey() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * key for double value
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          key_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * key for double value
+     * </pre>
+     *
+     * <code>required string key = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Double> value_;
+    /**
+     * <pre>
+     * value
+     * </pre>
+     *
+     * <code>repeated double value = 2;</code>
+     */
+    public java.util.List<java.lang.Double>
+        getValueList() {
+      return value_;
+    }
+    /**
+     * <pre>
+     * value
+     * </pre>
+     *
+     * <code>repeated double value = 2;</code>
+     */
+    public int getValueCount() {
+      return value_.size();
+    }
+    /**
+     * <pre>
+     * value
+     * </pre>
+     *
+     * <code>repeated double value = 2;</code>
+     */
+    public double getValue(int index) {
+      return value_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasKey()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+      }
+      for (int i = 0; i < value_.size(); i++) {
+        output.writeDouble(2, value_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getValueList().size();
+        size += dataSize;
+        size += 1 * getValueList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proio.model.Mc.MapDouble)) {
+        return super.equals(obj);
+      }
+      proio.model.Mc.MapDouble other = (proio.model.Mc.MapDouble) obj;
+
+      boolean result = true;
+      result = result && (hasKey() == other.hasKey());
+      if (hasKey()) {
+        result = result && getKey()
+            .equals(other.getKey());
+      }
+      result = result && getValueList()
+          .equals(other.getValueList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
+      }
+      if (getValueCount() > 0) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValueList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proio.model.Mc.MapDouble parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proio.model.Mc.MapDouble parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MapDouble parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proio.model.Mc.MapDouble parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proio.model.Mc.MapDouble prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * map to store arbitrary data as key-double value 
+     * </pre>
+     *
+     * Protobuf type {@code proio.model.mc.MapDouble}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proio.model.mc.MapDouble)
+        proio.model.Mc.MapDoubleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proio.model.Mc.internal_static_proio_model_mc_MapDouble_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proio.model.Mc.internal_static_proio_model_mc_MapDouble_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proio.model.Mc.MapDouble.class, proio.model.Mc.MapDouble.Builder.class);
+      }
+
+      // Construct using proio.model.Mc.MapDouble.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        key_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proio.model.Mc.internal_static_proio_model_mc_MapDouble_descriptor;
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MapDouble getDefaultInstanceForType() {
+        return proio.model.Mc.MapDouble.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MapDouble build() {
+        proio.model.Mc.MapDouble result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proio.model.Mc.MapDouble buildPartial() {
+        proio.model.Mc.MapDouble result = new proio.model.Mc.MapDouble(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.key_ = key_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proio.model.Mc.MapDouble) {
+          return mergeFrom((proio.model.Mc.MapDouble)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proio.model.Mc.MapDouble other) {
+        if (other == proio.model.Mc.MapDouble.getDefaultInstance()) return this;
+        if (other.hasKey()) {
+          bitField0_ |= 0x00000001;
+          key_ = other.key_;
+          onChanged();
+        }
+        if (!other.value_.isEmpty()) {
+          if (value_.isEmpty()) {
+            value_ = other.value_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureValueIsMutable();
+            value_.addAll(other.value_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasKey()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proio.model.Mc.MapDouble parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proio.model.Mc.MapDouble) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object key_ = "";
+      /**
+       * <pre>
+       * key for double value
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public boolean hasKey() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * key for double value
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            key_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * key for double value
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * key for double value
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * key for double value
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public Builder clearKey() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * key for double value
+       * </pre>
+       *
+       * <code>required string key = 1;</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        key_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Double> value_ = java.util.Collections.emptyList();
+      private void ensureValueIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = new java.util.ArrayList<java.lang.Double>(value_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public java.util.List<java.lang.Double>
+          getValueList() {
+        return java.util.Collections.unmodifiableList(value_);
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public int getValueCount() {
+        return value_.size();
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public double getValue(int index) {
+        return value_.get(index);
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder setValue(
+          int index, double value) {
+        ensureValueIsMutable();
+        value_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder addValue(double value) {
+        ensureValueIsMutable();
+        value_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder addAllValue(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureValueIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, value_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * value
+       * </pre>
+       *
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder clearValue() {
+        value_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proio.model.mc.MapDouble)
+    }
+
+    // @@protoc_insertion_point(class_scope:proio.model.mc.MapDouble)
+    private static final proio.model.Mc.MapDouble DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proio.model.Mc.MapDouble();
+    }
+
+    public static proio.model.Mc.MapDouble getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MapDouble>
+        PARSER = new com.google.protobuf.AbstractParser<MapDouble>() {
+      @java.lang.Override
+      public MapDouble parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MapDouble(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MapDouble> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MapDouble> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proio.model.Mc.MapDouble getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface Pythia8ParametersOrBuilder extends
       // @@protoc_insertion_point(interface_extends:proio.model.mc.Pythia8Parameters)
       com.google.protobuf.MessageOrBuilder {
@@ -1047,10 +3423,18 @@ public final class Mc {
     double getMergingWeight();
 
     /**
+     * <pre>
+     *transverse momentum
+     * </pre>
+     *
      * <code>optional double pt_hat = 3;</code>
      */
     boolean hasPtHat();
     /**
+     * <pre>
+     *transverse momentum
+     * </pre>
+     *
      * <code>optional double pt_hat = 3;</code>
      */
     double getPtHat();
@@ -1074,55 +3458,103 @@ public final class Mc {
     double getAlphaS();
 
     /**
+     * <pre>
+     * Q-scale used in evaluation of PDF’s (in GeV)
+     * </pre>
+     *
      * <code>optional double scale_q_fac = 6;</code>
      */
     boolean hasScaleQFac();
     /**
+     * <pre>
+     * Q-scale used in evaluation of PDF’s (in GeV)
+     * </pre>
+     *
      * <code>optional double scale_q_fac = 6;</code>
      */
     double getScaleQFac();
 
     /**
+     * <pre>
+     * event weight
+     * </pre>
+     *
      * <code>optional double weight = 7;</code>
      */
     boolean hasWeight();
     /**
+     * <pre>
+     * event weight
+     * </pre>
+     *
      * <code>optional double weight = 7;</code>
      */
     double getWeight();
 
     /**
+     * <pre>
+     * fraction of beam momentum carried by first parton (”beam side”)
+     * </pre>
+     *
      * <code>optional double x1 = 8;</code>
      */
     boolean hasX1();
     /**
+     * <pre>
+     * fraction of beam momentum carried by first parton (”beam side”)
+     * </pre>
+     *
      * <code>optional double x1 = 8;</code>
      */
     double getX1();
 
     /**
+     * <pre>
+     * fraction of beam momentum carried by second parton (”target side”)
+     * </pre>
+     *
      * <code>optional double x2 = 9;</code>
      */
     boolean hasX2();
     /**
+     * <pre>
+     * fraction of beam momentum carried by second parton (”target side”)
+     * </pre>
+     *
      * <code>optional double x2 = 9;</code>
      */
     double getX2();
 
     /**
+     * <pre>
+     * flavour code of first parton
+     * </pre>
+     *
      * <code>optional uint64 id1 = 10;</code>
      */
     boolean hasId1();
     /**
+     * <pre>
+     * flavour code of first parton
+     * </pre>
+     *
      * <code>optional uint64 id1 = 10;</code>
      */
     long getId1();
 
     /**
+     * <pre>
+     * flavour code of second parton
+     * </pre>
+     *
      * <code>optional uint64 id2 = 11;</code>
      */
     boolean hasId2();
     /**
+     * <pre>
+     * flavour code of second parton
+     * </pre>
+     *
      * <code>optional uint64 id2 = 11;</code>
      */
     long getId2();
@@ -1302,12 +3734,20 @@ public final class Mc {
     public static final int PT_HAT_FIELD_NUMBER = 3;
     private double ptHat_;
     /**
+     * <pre>
+     *transverse momentum
+     * </pre>
+     *
      * <code>optional double pt_hat = 3;</code>
      */
     public boolean hasPtHat() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     * <pre>
+     *transverse momentum
+     * </pre>
+     *
      * <code>optional double pt_hat = 3;</code>
      */
     public double getPtHat() {
@@ -1347,12 +3787,20 @@ public final class Mc {
     public static final int SCALE_Q_FAC_FIELD_NUMBER = 6;
     private double scaleQFac_;
     /**
+     * <pre>
+     * Q-scale used in evaluation of PDF’s (in GeV)
+     * </pre>
+     *
      * <code>optional double scale_q_fac = 6;</code>
      */
     public boolean hasScaleQFac() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
+     * <pre>
+     * Q-scale used in evaluation of PDF’s (in GeV)
+     * </pre>
+     *
      * <code>optional double scale_q_fac = 6;</code>
      */
     public double getScaleQFac() {
@@ -1362,12 +3810,20 @@ public final class Mc {
     public static final int WEIGHT_FIELD_NUMBER = 7;
     private double weight_;
     /**
+     * <pre>
+     * event weight
+     * </pre>
+     *
      * <code>optional double weight = 7;</code>
      */
     public boolean hasWeight() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
+     * <pre>
+     * event weight
+     * </pre>
+     *
      * <code>optional double weight = 7;</code>
      */
     public double getWeight() {
@@ -1377,12 +3833,20 @@ public final class Mc {
     public static final int X1_FIELD_NUMBER = 8;
     private double x1_;
     /**
+     * <pre>
+     * fraction of beam momentum carried by first parton (”beam side”)
+     * </pre>
+     *
      * <code>optional double x1 = 8;</code>
      */
     public boolean hasX1() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
+     * <pre>
+     * fraction of beam momentum carried by first parton (”beam side”)
+     * </pre>
+     *
      * <code>optional double x1 = 8;</code>
      */
     public double getX1() {
@@ -1392,12 +3856,20 @@ public final class Mc {
     public static final int X2_FIELD_NUMBER = 9;
     private double x2_;
     /**
+     * <pre>
+     * fraction of beam momentum carried by second parton (”target side”)
+     * </pre>
+     *
      * <code>optional double x2 = 9;</code>
      */
     public boolean hasX2() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
+     * <pre>
+     * fraction of beam momentum carried by second parton (”target side”)
+     * </pre>
+     *
      * <code>optional double x2 = 9;</code>
      */
     public double getX2() {
@@ -1407,12 +3879,20 @@ public final class Mc {
     public static final int ID1_FIELD_NUMBER = 10;
     private long id1_;
     /**
+     * <pre>
+     * flavour code of first parton
+     * </pre>
+     *
      * <code>optional uint64 id1 = 10;</code>
      */
     public boolean hasId1() {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
+     * <pre>
+     * flavour code of first parton
+     * </pre>
+     *
      * <code>optional uint64 id1 = 10;</code>
      */
     public long getId1() {
@@ -1422,12 +3902,20 @@ public final class Mc {
     public static final int ID2_FIELD_NUMBER = 11;
     private long id2_;
     /**
+     * <pre>
+     * flavour code of second parton
+     * </pre>
+     *
      * <code>optional uint64 id2 = 11;</code>
      */
     public boolean hasId2() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
+     * <pre>
+     * flavour code of second parton
+     * </pre>
+     *
      * <code>optional uint64 id2 = 11;</code>
      */
     public long getId2() {
@@ -2098,18 +4586,30 @@ public final class Mc {
 
       private double ptHat_ ;
       /**
+       * <pre>
+       *transverse momentum
+       * </pre>
+       *
        * <code>optional double pt_hat = 3;</code>
        */
       public boolean hasPtHat() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       * <pre>
+       *transverse momentum
+       * </pre>
+       *
        * <code>optional double pt_hat = 3;</code>
        */
       public double getPtHat() {
         return ptHat_;
       }
       /**
+       * <pre>
+       *transverse momentum
+       * </pre>
+       *
        * <code>optional double pt_hat = 3;</code>
        */
       public Builder setPtHat(double value) {
@@ -2119,6 +4619,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       *transverse momentum
+       * </pre>
+       *
        * <code>optional double pt_hat = 3;</code>
        */
       public Builder clearPtHat() {
@@ -2194,18 +4698,30 @@ public final class Mc {
 
       private double scaleQFac_ ;
       /**
+       * <pre>
+       * Q-scale used in evaluation of PDF’s (in GeV)
+       * </pre>
+       *
        * <code>optional double scale_q_fac = 6;</code>
        */
       public boolean hasScaleQFac() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
+       * <pre>
+       * Q-scale used in evaluation of PDF’s (in GeV)
+       * </pre>
+       *
        * <code>optional double scale_q_fac = 6;</code>
        */
       public double getScaleQFac() {
         return scaleQFac_;
       }
       /**
+       * <pre>
+       * Q-scale used in evaluation of PDF’s (in GeV)
+       * </pre>
+       *
        * <code>optional double scale_q_fac = 6;</code>
        */
       public Builder setScaleQFac(double value) {
@@ -2215,6 +4731,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       * Q-scale used in evaluation of PDF’s (in GeV)
+       * </pre>
+       *
        * <code>optional double scale_q_fac = 6;</code>
        */
       public Builder clearScaleQFac() {
@@ -2226,18 +4746,30 @@ public final class Mc {
 
       private double weight_ ;
       /**
+       * <pre>
+       * event weight
+       * </pre>
+       *
        * <code>optional double weight = 7;</code>
        */
       public boolean hasWeight() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
+       * <pre>
+       * event weight
+       * </pre>
+       *
        * <code>optional double weight = 7;</code>
        */
       public double getWeight() {
         return weight_;
       }
       /**
+       * <pre>
+       * event weight
+       * </pre>
+       *
        * <code>optional double weight = 7;</code>
        */
       public Builder setWeight(double value) {
@@ -2247,6 +4779,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       * event weight
+       * </pre>
+       *
        * <code>optional double weight = 7;</code>
        */
       public Builder clearWeight() {
@@ -2258,18 +4794,30 @@ public final class Mc {
 
       private double x1_ ;
       /**
+       * <pre>
+       * fraction of beam momentum carried by first parton (”beam side”)
+       * </pre>
+       *
        * <code>optional double x1 = 8;</code>
        */
       public boolean hasX1() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
+       * <pre>
+       * fraction of beam momentum carried by first parton (”beam side”)
+       * </pre>
+       *
        * <code>optional double x1 = 8;</code>
        */
       public double getX1() {
         return x1_;
       }
       /**
+       * <pre>
+       * fraction of beam momentum carried by first parton (”beam side”)
+       * </pre>
+       *
        * <code>optional double x1 = 8;</code>
        */
       public Builder setX1(double value) {
@@ -2279,6 +4827,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       * fraction of beam momentum carried by first parton (”beam side”)
+       * </pre>
+       *
        * <code>optional double x1 = 8;</code>
        */
       public Builder clearX1() {
@@ -2290,18 +4842,30 @@ public final class Mc {
 
       private double x2_ ;
       /**
+       * <pre>
+       * fraction of beam momentum carried by second parton (”target side”)
+       * </pre>
+       *
        * <code>optional double x2 = 9;</code>
        */
       public boolean hasX2() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
+       * <pre>
+       * fraction of beam momentum carried by second parton (”target side”)
+       * </pre>
+       *
        * <code>optional double x2 = 9;</code>
        */
       public double getX2() {
         return x2_;
       }
       /**
+       * <pre>
+       * fraction of beam momentum carried by second parton (”target side”)
+       * </pre>
+       *
        * <code>optional double x2 = 9;</code>
        */
       public Builder setX2(double value) {
@@ -2311,6 +4875,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       * fraction of beam momentum carried by second parton (”target side”)
+       * </pre>
+       *
        * <code>optional double x2 = 9;</code>
        */
       public Builder clearX2() {
@@ -2322,18 +4890,30 @@ public final class Mc {
 
       private long id1_ ;
       /**
+       * <pre>
+       * flavour code of first parton
+       * </pre>
+       *
        * <code>optional uint64 id1 = 10;</code>
        */
       public boolean hasId1() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
+       * <pre>
+       * flavour code of first parton
+       * </pre>
+       *
        * <code>optional uint64 id1 = 10;</code>
        */
       public long getId1() {
         return id1_;
       }
       /**
+       * <pre>
+       * flavour code of first parton
+       * </pre>
+       *
        * <code>optional uint64 id1 = 10;</code>
        */
       public Builder setId1(long value) {
@@ -2343,6 +4923,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       * flavour code of first parton
+       * </pre>
+       *
        * <code>optional uint64 id1 = 10;</code>
        */
       public Builder clearId1() {
@@ -2354,18 +4938,30 @@ public final class Mc {
 
       private long id2_ ;
       /**
+       * <pre>
+       * flavour code of second parton
+       * </pre>
+       *
        * <code>optional uint64 id2 = 11;</code>
        */
       public boolean hasId2() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
+       * <pre>
+       * flavour code of second parton
+       * </pre>
+       *
        * <code>optional uint64 id2 = 11;</code>
        */
       public long getId2() {
         return id2_;
       }
       /**
+       * <pre>
+       * flavour code of second parton
+       * </pre>
+       *
        * <code>optional uint64 id2 = 11;</code>
        */
       public Builder setId2(long value) {
@@ -2375,6 +4971,10 @@ public final class Mc {
         return this;
       }
       /**
+       * <pre>
+       * flavour code of second parton
+       * </pre>
+       *
        * <code>optional uint64 id2 = 11;</code>
        */
       public Builder clearId2() {
@@ -2442,6 +5042,16 @@ public final class Mc {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proio_model_mc_MCParameters_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proio_model_mc_MapInt_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proio_model_mc_MapInt_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proio_model_mc_MapDouble_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proio_model_mc_MapDouble_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proio_model_mc_Pythia8Parameters_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2455,17 +5065,20 @@ public final class Mc {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024proio/model/mc.proto\022\016proio.model.mc\"a" +
-      "\n\014MCParameters\022\016\n\006number\030\001 \001(\004\022\021\n\tproces" +
-      "sid\030\002 \001(\005\022\016\n\006weight\030\003 \001(\001\022\016\n\006iarray\030\004 \003(" +
-      "\005\022\016\n\006darray\030\005 \003(\001\"\311\001\n\021Pythia8Parameters\022" +
-      "\022\n\nweight_sum\030\001 \001(\001\022\026\n\016merging_weight\030\002 " +
-      "\001(\001\022\016\n\006pt_hat\030\003 \001(\001\022\020\n\010alpha_em\030\004 \001(\001\022\017\n" +
-      "\007alpha_s\030\005 \001(\001\022\023\n\013scale_q_fac\030\006 \001(\001\022\016\n\006w" +
-      "eight\030\007 \001(\001\022\n\n\002x1\030\010 \001(\001\022\n\n\002x2\030\t \001(\001\022\013\n\003i" +
-      "d1\030\n \001(\004\022\013\n\003id2\030\013 \001(\004BC\n\013proio.modelB\002Mc" +
-      "Z0github.com/decibelcooper/proio/go-proi" +
-      "o/model/mc"
+      "\n\024proio/model/mc.proto\022\016proio.model.mc\"\220" +
+      "\001\n\014MCParameters\022\016\n\006number\030\001 \001(\004\022\021\n\tproce" +
+      "ssid\030\002 \001(\005\022\016\n\006weight\030\003 \001(\001\022$\n\004imap\030\004 \003(\013" +
+      "2\026.proio.model.mc.MapInt\022\'\n\004dmap\030\005 \003(\0132\031" +
+      ".proio.model.mc.MapDouble\"$\n\006MapInt\022\013\n\003k" +
+      "ey\030\001 \002(\t\022\r\n\005value\030\002 \003(\021\"\'\n\tMapDouble\022\013\n\003" +
+      "key\030\001 \002(\t\022\r\n\005value\030\002 \003(\001\"\311\001\n\021Pythia8Para" +
+      "meters\022\022\n\nweight_sum\030\001 \001(\001\022\026\n\016merging_we" +
+      "ight\030\002 \001(\001\022\016\n\006pt_hat\030\003 \001(\001\022\020\n\010alpha_em\030\004" +
+      " \001(\001\022\017\n\007alpha_s\030\005 \001(\001\022\023\n\013scale_q_fac\030\006 \001" +
+      "(\001\022\016\n\006weight\030\007 \001(\001\022\n\n\002x1\030\010 \001(\001\022\n\n\002x2\030\t \001" +
+      "(\001\022\013\n\003id1\030\n \001(\004\022\013\n\003id2\030\013 \001(\004BC\n\013proio.mo" +
+      "delB\002McZ0github.com/decibelcooper/proio/" +
+      "go-proio/model/mc"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2484,9 +5097,21 @@ public final class Mc {
     internal_static_proio_model_mc_MCParameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proio_model_mc_MCParameters_descriptor,
-        new java.lang.String[] { "Number", "Processid", "Weight", "Iarray", "Darray", });
-    internal_static_proio_model_mc_Pythia8Parameters_descriptor =
+        new java.lang.String[] { "Number", "Processid", "Weight", "Imap", "Dmap", });
+    internal_static_proio_model_mc_MapInt_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_proio_model_mc_MapInt_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proio_model_mc_MapInt_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_proio_model_mc_MapDouble_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_proio_model_mc_MapDouble_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proio_model_mc_MapDouble_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_proio_model_mc_Pythia8Parameters_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_proio_model_mc_Pythia8Parameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proio_model_mc_Pythia8Parameters_descriptor,
