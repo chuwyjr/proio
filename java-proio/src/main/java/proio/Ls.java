@@ -57,7 +57,7 @@ public class Ls {
     for (Descriptors.FieldDescriptor field : fields) {
       if (!field.isRepeated()) {
         if (msg.hasField(field)) {
-          returnString = returnString + "\n" + field.getName() + ": ";
+          returnString = returnString + "\n" + field.getName() + ": " ;
           Object value = msg.getField(field);
           returnString = returnString + getFieldValueString(field, value);
         }
@@ -105,3 +105,4 @@ public class Ls {
     return returnString;
   }
 }
+
